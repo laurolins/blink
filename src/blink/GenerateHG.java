@@ -120,7 +120,7 @@ public class GenerateHG {
             int N = (int) Math.pow(2,ne);
             for (int k=0;k<N;k++) {
 
-                // para cada coloração válida
+                // para cada coloraÃ§Ã£o vÃ¡lida
                 for (int e=1;e<=ne;e++)
                     m.setColor(e,((k & 0x01 << (e-1)) == 0 ? BlinkColor.green : BlinkColor.red));
 

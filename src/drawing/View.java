@@ -222,7 +222,7 @@ public class View  {
 		views.add(new View(rWorld,rScreen3));
 		views.add(new View(rWorld,rScreen4));
 		
-		JFrame f = new JFrame("Séries");
+		JFrame f = new JFrame("SÃ©ries");
 		f.setBounds(0,0,500, 500);
 		f.setContentPane(new TestFrame(rWorld,views));
 		f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

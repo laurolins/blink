@@ -5,8 +5,8 @@ import java.util.Vector;
 
 
 /**
- * Janela que permite escolher um objeto entre v·rios em uma lista.
- * Cada objeto È visto como uma linha numa tabela.
+ * Janela que permite escolher um objeto entre v√°rios em uma lista.
+ * Cada objeto √© visto como uma linha numa tabela.
  */
 public class ChoiceDialog extends EditDialog {
     ChoicePanel _panel = new ChoicePanel();

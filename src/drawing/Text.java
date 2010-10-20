@@ -99,7 +99,7 @@ public class Text extends AbstractDrawing {
 	    
 	    G.scale(_fontSize*xUnitLength, _fontSize*yUnitLength);
 		
-		// TODO como fazer pra esse prÛximo comando (new TextLayout) n„o detonar a memÛria
+		// TODO como fazer pra esse pr√≥ximo comando (new TextLayout) n√£o detonar a mem√≥ria
 		TextLayout tLayout = new TextLayout(_text,G.getFont(),G.getFontRenderContext());
 		float w = (float)tLayout.getVisibleAdvance();
 		float h = (float)tLayout.getBounds().getHeight();

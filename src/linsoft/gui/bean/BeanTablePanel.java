@@ -16,7 +16,7 @@ import javax.swing.table.TableCellEditor;
 import javax.swing.table.TableModel;
 
 /**
- * Painel em que h· uma BeanTable.
+ * Painel em que h√° uma BeanTable.
  */
 public class BeanTablePanel extends JPanel implements Serializable {
 

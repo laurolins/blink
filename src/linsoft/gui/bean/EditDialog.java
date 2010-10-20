@@ -13,8 +13,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
- * Janela que mostra um painel para editar alguma coisa e botıes
- * de confirmaÁ„o e cancelamento.
+ * Janela que mostra um painel para editar alguma coisa e bot√µes
+ * de confirma√ß√£o e cancelamento.
  */
 public class EditDialog extends JDialog {
     JPanel _panel = new JPanel();
@@ -78,7 +78,7 @@ public class EditDialog extends JDialog {
     }
 
     /**
-     * Seta o painel de ediÁ„o da janela.
+     * Seta o painel de edi√ß√£o da janela.
      */
     public void setEditPanel(BeanTablePanel panel) {
         _panel.remove(_editPanel);

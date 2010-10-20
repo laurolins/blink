@@ -3,8 +3,8 @@ package linsoft.gui.bean;
 import java.beans.IntrospectionException;
 
 /**
- * Painel com uma BeanTable cujo modelo é um MultipleBeanTableModel.
- * Usado no editor de uma propriedade que é uma referencia para um
+ * Painel com uma BeanTable cujo modelo Ã© um MultipleBeanTableModel.
+ * Usado no editor de uma propriedade que Ã© uma referencia para um
  * objeto qualquer.
  */
 public class ChoicePanel extends BeanTablePanel {

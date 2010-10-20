@@ -39,7 +39,7 @@ private void buildHeap()
 				}
 			}
 
-			// se È preciso descer com o parent ...
+			// se √© preciso descer com o parent ...
 			if (q.getWeight() > p.getWeight())
 			{
 				this.swap(j - 1, k - 1);
@@ -47,7 +47,7 @@ private void buildHeap()
 				k = j + j;
 			}
 
-			// sen„o acabou a ·rvore bin·ria rooted em i est· em forma de heap...
+			// sen√£o acabou a √°rvore bin√°ria rooted em i est√° em forma de heap...
 			else
 				break;
 		}
@@ -101,7 +101,7 @@ private void rearrangeHeap(int size)
 			}
 		}
 
-		// se È preciso descer com o parent ...
+		// se √© preciso descer com o parent ...
 		if (q.getWeight() > p.getWeight())
 		{
 			this.swap(j - 1, k - 1);
@@ -109,7 +109,7 @@ private void rearrangeHeap(int size)
 			k = j + j;
 		}
 
-		// sen„o acabou a ·rvore bin·ria rooted em 1 com n elementos est· em forma de heap...
+		// sen√£o acabou a √°rvore bin√°ria rooted em 1 com n elementos est√° em forma de heap...
 		else
 			break;
 	}

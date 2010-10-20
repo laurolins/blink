@@ -26,7 +26,7 @@ public class PersistentMBTM extends MultipleBeanTableModel {
         // config
         MBTMConfig c = _config;
 
-        // contar colunas v·lidas
+        // contar colunas v√°lidas
         ArrayList ids = new ArrayList();
         for (int i = 0; i < c.getCurrentConfig().getNumColumns(); i++) {
             String id = c.getCurrentConfig().getColumnId(i);
@@ -94,7 +94,7 @@ public class PersistentMBTM extends MultipleBeanTableModel {
 
         dialog.setModal(true);
         dialog.getContentPane().add(p,null);
-        dialog.setTitle("Escolher Colunas VisÌveis");
+        dialog.setTitle("Escolher Colunas Vis√≠veis");
 
         //
         resizeAndCenterWindow(dialog,640,480);

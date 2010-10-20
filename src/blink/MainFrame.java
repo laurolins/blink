@@ -330,7 +330,7 @@ public class MainFrame extends JFrame {
                         return null;
                     }
                 }
-                , "Importando Candles Di·rios...", 160, 120);
+                , "Importando Candles Di√°rios...", 160, 120);
 
                 if (o != null)
                     throw new RuntimeException("Oooooooppppsss");

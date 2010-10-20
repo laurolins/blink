@@ -120,7 +120,7 @@ public class Log {
 		Log log1 = null;
 		Log log2 = null;
 		try {
-			// n„o persistente
+			// n√£o persistente
 			log1 = new Log("log1", "arq1.log", false);
 
 			// persistente

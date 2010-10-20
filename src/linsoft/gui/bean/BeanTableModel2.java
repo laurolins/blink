@@ -105,7 +105,7 @@ public class BeanTableModel2 extends AbstractTableModel {
 	}
 
 	/////////////////////////////////////////////////////
-	// INICIO: sobrepondo métodos de AbstractTableModel
+	// INICIO: sobrepondo mÃ©todos de AbstractTableModel
 
     /**
 	 * getValueAt
@@ -206,7 +206,7 @@ public class BeanTableModel2 extends AbstractTableModel {
 
 
 
-	// FIM: sobrepondo métodos de AbstractTableModel
+	// FIM: sobrepondo mÃ©todos de AbstractTableModel
 	///////////////////////////////////////////////////
 
     /**

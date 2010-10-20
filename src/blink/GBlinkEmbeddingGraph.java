@@ -507,7 +507,7 @@ public class GBlinkEmbeddingGraph {
             double c0 = c;
             double lambda0 = lambda;
             int flag0 = flag;
-            c = 0.0; // esta linha n„o est· no programa
+            c = 0.0; // esta linha n√£o est√° no programa
 
             // R0 <- R
             for (GBlinkEmbeddingGraphVertex u: _vertices)

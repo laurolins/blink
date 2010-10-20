@@ -48,7 +48,7 @@ public class ColorGBlinks {
 
                 blinks++;
 
-                // para cada coloraÁ„o v·lida
+                // para cada colora√ß√£o v√°lida
                 for (int e=1;e<=epp.size();e++) {
                     BlinkColor cor = (k & (0x01 << (e - 1))) == 0 ? BlinkColor.green : BlinkColor.red;
                     epp.get(e-1).assign(m,cor);

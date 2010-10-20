@@ -71,7 +71,7 @@ public class Map {
 	            E eFirst = null;
 
 	            
-				// criar os vértices do mapa ao redor do vértice do grafo
+				// criar os vÃ©rtices do mapa ao redor do vÃ©rtice do grafo
 	            for (int j = 0; j < n; j++) {
 	                int lbl1 = mapcr[i][j];
 	            	

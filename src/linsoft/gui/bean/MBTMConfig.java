@@ -113,7 +113,7 @@ public class MBTMConfig {
     }
 
     /**
-     * Adicionar uma nova configuracao protótipo.
+     * Adicionar uma nova configuracao protÃ³tipo.
      */
     public void addPrototype(String prototypeName, String[] sequence, int rowHeight) throws BackingStoreException {
         // warranty removal

@@ -152,7 +152,7 @@ public class PersistentBeanTable extends BeanTable {
         JPopupMenu p = new JPopupMenu();
         p.setBorder(BorderFactory.createLineBorder(Color.black, 1));
         PersistentMBTM m = (PersistentMBTM) this.getModel();
-        /* p.add(new JLabel("Configuração"));
+        /* p.add(new JLabel("ConfiguraÃ§Ã£o"));
         for (int i=0;i<m.getNumConfigs();i++) {
             JMenuItem item = createActionMenuItem(new ActionChangeConfig(m.getConfig(i)));
             if (m.getConfig(i).equals(m.getCurrentConfigName()))
@@ -160,16 +160,16 @@ public class PersistentBeanTable extends BeanTable {
             p.add(item);
         }
         p.addSeparator(); */
-        p.add(new JLabel("Configurações"));
+        p.add(new JLabel("ConfiguraÃ§Ãµes"));
         for (int i=0;i<m.getNumPrototypes();i++) {
             JMenuItem item = createActionMenuItem(new ActionCopyFromPrototype(m.getPrototypeName(i)));
             p.add(item);
         }
         p.addSeparator();
-        p.add(new JLabel("Opções"));
-        p.add(createActionMenuItem(new ActionSaveCurrentConfigToNewConfig("Salvar Nova Configuração")));
+        p.add(new JLabel("OpÃ§Ãµes"));
+        p.add(createActionMenuItem(new ActionSaveCurrentConfigToNewConfig("Salvar Nova ConfiguraÃ§Ã£o")));
         p.add(createActionMenuItem(new ActionSetRowHeight("Altura das Linhas")));
-        p.add(createActionMenuItem(new ActionRemoverPrototipo("Remover Configuração")));
+        p.add(createActionMenuItem(new ActionRemoverPrototipo("Remover ConfiguraÃ§Ã£o")));
         return p;
     }
 
@@ -250,11 +250,11 @@ public class PersistentBeanTable extends BeanTable {
     // Implementation of actions
 
     /**
-     * Salvar a configuracao atual como protótipo.
+     * Salvar a configuracao atual como protÃ³tipo.
      */
     public void saveNewPrototype() {
         try {
-            Object obj = JOptionPane.showInputDialog(this.getTopLevelAncestor(),"Nome do Protótipo","modelo "+(getPersistentModel().getNumPrototypes()+1));
+            Object obj = JOptionPane.showInputDialog(this.getTopLevelAncestor(),"Nome do ProtÃ³tipo","modelo "+(getPersistentModel().getNumPrototypes()+1));
             if (obj != null) {
                 getPersistentModel().saveCurrentConfigAsPrototype(obj.toString());
             }
@@ -269,7 +269,7 @@ public class PersistentBeanTable extends BeanTable {
      */
     public void setHeightOfCurrentConfig() {
         int h = getPersistentModel().getHeight();
-        Object obj = JOptionPane.showInputDialog(this.getTopLevelAncestor(), "Nome do Protótipo", ""+h);
+        Object obj = JOptionPane.showInputDialog(this.getTopLevelAncestor(), "Nome do ProtÃ³tipo", ""+h);
         if (obj != null) {
             String st = (String) obj;
             try {
@@ -278,7 +278,7 @@ public class PersistentBeanTable extends BeanTable {
                 this.setHeight(getPersistentModel().getHeight());
             }
             catch (NumberFormatException ex1) {
-                JOptionPane.showMessageDialog(this.getTopLevelAncestor(), "Entrada Inválida");
+                JOptionPane.showMessageDialog(this.getTopLevelAncestor(), "Entrada InvÃ¡lida");
             }
         }
     }
@@ -306,7 +306,7 @@ public class PersistentBeanTable extends BeanTable {
             String st = m.getPrototypeName(i);
             obj[i] = st;
         }
-        Object result = JOptionPane.showInputDialog(this.getTopLevelAncestor(), "Nome do Protótipo", "Protótipos", JOptionPane.PLAIN_MESSAGE, null, obj, null);
+        Object result = JOptionPane.showInputDialog(this.getTopLevelAncestor(), "Nome do ProtÃ³tipo", "ProtÃ³tipos", JOptionPane.PLAIN_MESSAGE, null, obj, null);
         if (result != null) {
             try {
                 getPersistentModel().removerPrototype( (String) result);

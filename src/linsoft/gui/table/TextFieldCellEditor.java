@@ -37,7 +37,7 @@ public class TextFieldCellEditor implements TableCellEditor {
     protected Object _value;
 
     /**
-     * Formatador para a edição com uma máscara.
+     * Formatador para a ediÃ§Ã£o com uma mÃ¡scara.
      */
     private MaskFormatter _formatter = new MaskFormatter();
 
@@ -204,9 +204,9 @@ public class TextFieldCellEditor implements TableCellEditor {
 
 
     /**
-     * Coloca uma máscara de edição no text field. Caso ele não seja
-     * da classe JFormattedTextField, constrói um novo objeto e então
-     * coloca a máscara nele. Precisa do JDK 1.4.
+     * Coloca uma mÃ¡scara de ediÃ§Ã£o no text field. Caso ele nÃ£o seja
+     * da classe JFormattedTextField, constrÃ³i um novo objeto e entÃ£o
+     * coloca a mÃ¡scara nele. Precisa do JDK 1.4.
      */
     public void setMascara(String mascara) {
         /*

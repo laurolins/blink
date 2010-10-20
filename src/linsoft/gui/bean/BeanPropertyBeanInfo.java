@@ -36,13 +36,13 @@ public class BeanPropertyBeanInfo extends SimpleBeanInfo {
             _name.setValue("font","Tahoma,bold,11"); // right = 2
 
 			// _name
-			_title.setValue("title","Título");
+			_title.setValue("title","TÃ­tulo");
 			_title.setValue("width","150");
 			_title.setValue("alignment","0"); // right = 2
 			_title.setValue("font","Tahoma,plain,11"); // right = 2
 
-			// _descriçao
-			_descricao.setValue("title","Descrição");
+			// _descriÃ§ao
+			_descricao.setValue("title","DescriÃ§Ã£o");
 			_descricao.setValue("width","290");
 			_descricao.setValue("alignment","0"); // right = 2
             _descricao.setValue("font","Tahoma,plain,11"); // right = 2

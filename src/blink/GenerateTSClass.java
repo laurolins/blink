@@ -239,7 +239,7 @@ public class GenerateTSClass {
         s.close();
 
         if (!g.isTSMovePoint(g.findVertex(4), new GemColor[] {GemColor.yellow,GemColor.green,GemColor.red,GemColor.blue}, TSMoveType.TS4)) {
-            System.out.println("Nao é Válido!");
+            System.out.println("Nao Ã© VÃ¡lido!");
             System.exit(0);
         }
 
@@ -275,7 +275,7 @@ public class GenerateTSClass {
 
         if (!g.isTSMovePoint(g.findVertex(1), new GemColor[] {GemColor.red, GemColor.blue, GemColor.yellow,
                              GemColor.green}, TSMoveType.TS3)) {
-            System.out.println("Nao é Válido!");
+            System.out.println("Nao Ã© VÃ¡lido!");
             System.exit(0);
         }
 

@@ -168,24 +168,24 @@ public class CalculateReductionGraph {
                                 // check if it simplifies
                                 Dipole d = candidate.findAnyDipole();
                                 if (d != null) {
-                                    System.out.println(""+candidate.getCurrentLabelling().getLettersString(",")+" tem simplificaÁ„o: ");
+                                    System.out.println(""+candidate.getCurrentLabelling().getLettersString(",")+" tem simplifica√ß√£o: ");
                                     System.out.println("Found "+d);
                                     return candidate;
                                 }
                                 RhoPair r2 = candidate.findAnyRho2Pair();
                                 if (r2 != null) {
-                                    System.out.println(""+candidate.getCurrentLabelling().getLettersString(",")+" tem simplificaÁ„o: ");
+                                    System.out.println(""+candidate.getCurrentLabelling().getLettersString(",")+" tem simplifica√ß√£o: ");
                                     System.out.println("Found "+r2);
                                     return candidate;
                                 }
                                 RhoPair r3 = candidate.findAnyRho3Pair();
                                 if (r3 != null) {
-                                    System.out.println(""+candidate.getCurrentLabelling().getLettersString(",")+" tem simplificaÁ„o: ");
+                                    System.out.println(""+candidate.getCurrentLabelling().getLettersString(",")+" tem simplifica√ß√£o: ");
                                     System.out.println("Found "+r3);
                                     return candidate;
                                 }
 
-                                // System.out.println("N√O");
+                                // System.out.println("N√ÉO");
                                 _set.add(candidate);
                                 _unprocessed.add(candidate);
                             }
@@ -252,7 +252,7 @@ public class CalculateReductionGraph {
                                 Edge e = _G.addEdge(new DirectedSparseEdge(u,newV));
                                 e.setUserDatum("key",move,UserData.SHARED);
 
-                                // System.out.println("N√O");
+                                // System.out.println("N√ÉO");
                                 _set.add(candidate);
                                 _unprocessed.add(candidate);
                             }

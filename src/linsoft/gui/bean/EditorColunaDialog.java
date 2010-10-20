@@ -16,7 +16,7 @@ import javax.swing.JTable;
 import javax.swing.table.TableModel;
 
 /**
- * Di·logo para editar a posiÁ„o e a visibilidade das colunas
+ * Di√°logo para editar a posi√ß√£o e a visibilidade das colunas
  * de um table model.
  */
 public class EditorColunaDialog extends JDialog {

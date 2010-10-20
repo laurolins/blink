@@ -118,8 +118,8 @@ public class DescricaoComponente {
             _labelDebug.setHorizontalAlignment(JLabel.CENTER);
             _labelDebug.setSize(width, height);
 
-            // verificar algum alinhamento que n„o estoure os limites da tela
-            // se n„o exisitr nenhum ent„o escolha algum aleatÛrio
+            // verificar algum alinhamento que n√£o estoure os limites da tela
+            // se n√£o exisitr nenhum ent√£o escolha algum aleat√≥rio
             Rectangle rectDescricao = null;
             boolean achouAlinhamento = false;
 
@@ -164,8 +164,8 @@ public class DescricaoComponente {
             //int height = 20; // fixo
             _label.setSize(_width, _height);
 
-            // verificar algum alinhamento que n„o estoure os limites da tela
-            // se n„o exisitr nenhum ent„o escolha algum aleatÛrio
+            // verificar algum alinhamento que n√£o estoure os limites da tela
+            // se n√£o exisitr nenhum ent√£o escolha algum aleat√≥rio
             Rectangle rectDescricao = null;
             boolean achouAlinhamento = false;
 
@@ -177,7 +177,7 @@ public class DescricaoComponente {
                 }
             }
 
-            // se n„o achou alinh. entao pegue o primeiro
+            // se n√£o achou alinh. entao pegue o primeiro
             if (!achouAlinhamento) {
                 rectDescricao = this.calcularBoundsDescricao(pontosDeAlinhamento[0]);
             }

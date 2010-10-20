@@ -15,9 +15,9 @@ class SegmentIntersection {
     public RSegment getSegment2() { return _s2; }
 
     /**
-     * Intersectar a projeção das retas definidas por
+     * Intersectar a projeÃ§Ã£o das retas definidas por
      * s1 e s2 no plano xy. Depois verificar se o
-     * a coordenada z é igual.
+     * a coordenada z Ã© igual.
      */
     public SegmentIntersection(RSegment s1, RSegment s2) {
         _s1 = s1;

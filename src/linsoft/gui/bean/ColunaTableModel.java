@@ -6,7 +6,7 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 
 /**
- * Classe do table model para o painel de configuraÁ„o das colunas
+ * Classe do table model para o painel de configura√ß√£o das colunas
  * de uma tabela.
  */
 public class ColunaTableModel extends AbstractTableModel {
@@ -44,7 +44,7 @@ public class ColunaTableModel extends AbstractTableModel {
 	private Vector _colunas;
 
 	/**
-	 * Table model que ser· editado.
+	 * Table model que ser√° editado.
 	 */
 	private TableModel _tableModel;
 
@@ -86,7 +86,7 @@ public class ColunaTableModel extends AbstractTableModel {
 		if(col == 0)
 			nome = "Nome";
 		else if(col == 1)
-			nome = "VisÌvel";
+			nome = "Vis√≠vel";
 		return nome;
 	}
 

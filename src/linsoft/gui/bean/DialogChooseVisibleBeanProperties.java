@@ -238,10 +238,10 @@ public class DialogChooseVisibleBeanProperties extends JDialog {
 	 */
 	private void jbInit() throws Exception {
         border1 = BorderFactory.createEtchedBorder(Color.white,new Color(148, 145, 140));
-        titledBorder1 = new TitledBorder(BorderFactory.createEtchedBorder(Color.white,new Color(148, 145, 140)),"Seqüência de Colunas Visíveis");
+        titledBorder1 = new TitledBorder(BorderFactory.createEtchedBorder(Color.white,new Color(148, 145, 140)),"SeqÃ¼Ãªncia de Colunas VisÃ­veis");
         border2 = BorderFactory.createEtchedBorder(Color.white,new Color(148, 145, 140));
-        titledBorder2 = new TitledBorder(border2,"Colunas Nao Visíveis");
-        border3 = new TitledBorder(BorderFactory.createEtchedBorder(Color.white,new Color(148, 145, 140)),"Seqüência de Colunas Visíveis");
+        titledBorder2 = new TitledBorder(border2,"Colunas Nao VisÃ­veis");
+        border3 = new TitledBorder(BorderFactory.createEtchedBorder(Color.white,new Color(148, 145, 140)),"SeqÃ¼Ãªncia de Colunas VisÃ­veis");
         _panelRoot.setLayout(borderLayout2);
         _botaoOK.setText("OK");
         _botaoOK.addActionListener(new java.awt.event.ActionListener() {

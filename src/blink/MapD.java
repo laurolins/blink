@@ -131,9 +131,9 @@ public class MapD {
         LinkedList<NodeD> queue = new LinkedList<NodeD>();
 
         // Criar uma spanning tree
-        // atravÈs de uma busca em largura a partir
-        // do vÈrtice 0 e setar os par‚metros
-        // para a representaÁ„o gr·fica
+        // atrav√©s de uma busca em largura a partir
+        // do v√©rtice 0 e setar os par√¢metros
+        // para a representa√ß√£o gr√°fica
         _root = _vertices.get(0);
         this.initPosition(_root,0,0,0,0,0,2*Math.PI);
         _root.setMark(true);

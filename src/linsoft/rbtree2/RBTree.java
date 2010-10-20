@@ -154,8 +154,8 @@ public class RBTree {
 
                 //
                 if (w == null) {
-                    System.out.println("w n„o pode ser null 1");
-                    throw new RuntimeException("w n„o pode ser null 1");
+                    System.out.println("w n√£o pode ser null 1");
+                    throw new RuntimeException("w n√£o pode ser null 1");
                 }
 
                 // Case 1
@@ -168,8 +168,8 @@ public class RBTree {
 
                 //
                 if (w == null) {
-                    System.out.println("w n„o pode ser null 2");
-                    throw new RuntimeException("w n„o pode ser null 2");
+                    System.out.println("w n√£o pode ser null 2");
+                    throw new RuntimeException("w n√£o pode ser null 2");
                 }
 
                 // Case 2
@@ -581,9 +581,9 @@ public class RBTree {
                 //
                 if (!t.checkRBProperty()) {
                     System.out.println("Problema ao inserir: "+rndNum);
-                    System.out.println("¡rvore Antiga: ");
+                    System.out.println("√Årvore Antiga: ");
                     System.out.println(previousTree);
-                    System.out.println("¡rvore Nova: ");
+                    System.out.println("√Årvore Nova: ");
                     System.out.println(t.mountString());
                 }
             }
@@ -605,9 +605,9 @@ public class RBTree {
                 //
                 if (!t.checkRBProperty()) {
                     System.out.println("Problema ao remover: "+rndNum);
-                    System.out.println("¡rvore Antiga: ");
+                    System.out.println("√Årvore Antiga: ");
                     System.out.println(previousTree);
-                    System.out.println("¡rvore Nova: ");
+                    System.out.println("√Årvore Nova: ");
                     System.out.println(t.mountString());
                 }
             }

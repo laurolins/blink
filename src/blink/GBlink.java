@@ -3335,11 +3335,11 @@ public class GBlink implements Comparable {
 
                     /**
                      * @todo desconfio (14/06/2006) que j podia
-                     * ser de mesma paridade que i. Aqui est„o
-                     * diferentes. Mas d· no mesmo pela
-                     * implementaÁ„o de disconnect. Quando (b == na),
-                     * coisa que acontece sempre na primeira iteraÁ„o
-                     * do laÁo j, disconnect È false.
+                     * ser de mesma paridade que i. Aqui est√£o
+                     * diferentes. Mas d√° no mesmo pela
+                     * implementa√ß√£o de disconnect. Quando (b == na),
+                     * coisa que acontece sempre na primeira itera√ß√£o
+                     * do la√ßo j, disconnect √© false.
                      */
 
                     for (int j = i + 1; j < blinkV.size() && !brokeMap; j+=2) {
@@ -3425,17 +3425,17 @@ public class GBlink implements Comparable {
      * angle neighbour. By hypothesis a and b are on
      * the same fa-gon (same blink vertex).
      *
-     * A pergunta È equivalente a:
-     * a e b, que est„o, por hipÛtese, no mesmo g-vÈrtice,
-     * est„o na mesma g-face?
+     * A pergunta √© equivalente a:
+     * a e b, que est√£o, por hip√≥tese, no mesmo g-v√©rtice,
+     * est√£o na mesma g-face?
      */
     private boolean disconnects(GBlinkVertex a, GBlinkVertex b) {
 
         GBlinkVertex na = a.getNeighbour(GBlinkEdgeType.edge); // angle neighbour
 
         // atravessa toda a face va-gon a partir de "na"
-        // (vizinho por angulo de "a"). "a" e "na" est„o
-        // na mesma face, porÈm, ser· que "b" est· na
+        // (vizinho por angulo de "a"). "a" e "na" est√£o
+        // na mesma face, por√©m, ser√° que "b" est√° na
         // mesma face de "a" e "na"?
         GBlinkEdgeType t = GBlinkEdgeType.vertex;
         GBlinkVertex v = a;
@@ -5072,11 +5072,11 @@ public class GBlink implements Comparable {
 
                 /**
                  * @todo desconfio (14/06/2006) que j podia
-                 * ser de mesma paridade que i. Aqui est„o
-                 * diferentes. Mas d· no mesmo pela
-                 * implementaÁ„o de disconnect. Quando (b == na),
-                 * coisa que acontece sempre na primeira iteraÁ„o
-                 * do laÁo j, disconnect È false.
+                 * ser de mesma paridade que i. Aqui est√£o
+                 * diferentes. Mas d√° no mesmo pela
+                 * implementa√ß√£o de disconnect. Quando (b == na),
+                 * coisa que acontece sempre na primeira itera√ß√£o
+                 * do la√ßo j, disconnect √© false.
                  */
 
                 for (int j = i + 1; j < gv.size(); j += 2) {

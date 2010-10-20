@@ -107,7 +107,7 @@ public class MultipleBeanTableModel extends AbstractTableModel {
 				resultado = this.treeCompare();
 			}
 
-			// se o resultado foi obtido entao aplicar invers„o
+			// se o resultado foi obtido entao aplicar invers√£o
 			else if (!_crescente) {
 				resultado = -resultado;
 			}

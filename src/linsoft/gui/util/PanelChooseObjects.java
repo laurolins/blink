@@ -88,7 +88,7 @@ public class PanelChooseObjects extends JPanel {
         this.setLayout(new GridBagLayout());
 
         // Selecionados List
-        this.add(new MySrollPane(_listUnselected,"Não-Selecionados"),
+        this.add(new MySrollPane(_listUnselected,"NÃ£o-Selecionados"),
                  new GridBagConstraints(0,0,1,1,0.5,1,GridBagConstraints.CENTER,GridBagConstraints.BOTH,new Insets(10,10,10,2),0,0));
 
         // Middle Buttons Panel

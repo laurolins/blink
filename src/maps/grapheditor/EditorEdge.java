@@ -232,7 +232,7 @@ public class EditorEdge extends AbstractDrawing {
         // labels
 //        
 //        G.setColor(Color.blue);
-//		// TODO como fazer pra esse prÛximo comando (new TextLayout) n„o detonar a memÛria
+//		// TODO como fazer pra esse pr√≥ximo comando (new TextLayout) n√£o detonar a mem√≥ria
 //        G.setFont(new Font(Font.DIALOG,Font.BOLD,14));
 //		TextLayout tLayout = new TextLayout(""+_connection.getId(),
 //				G.getFont(),G.getFontRenderContext());

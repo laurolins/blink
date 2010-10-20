@@ -57,12 +57,12 @@ public class BeanProperty {
     private boolean _contextEditable;
 
     /**
-     * Título informado p/ a coluna da propriedade.
+     * TÃ­tulo informado p/ a coluna da propriedade.
      */
     private String _title;
 
     /**
-     * Descriçao da propriedade.
+     * DescriÃ§ao da propriedade.
      */
     private String _descricao;
 
@@ -120,7 +120,7 @@ public class BeanProperty {
             System.out.print("Could not get title");
         }
 
-        // get descrição
+        // get descriÃ§Ã£o
         _descricao = "";
         try {
             String value = (String) _descriptor.getValue("descricao");

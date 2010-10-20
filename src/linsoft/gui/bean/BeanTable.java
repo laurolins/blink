@@ -168,7 +168,7 @@ public class BeanTable
         else
             editor = super.getCellEditor(row, col);
 
-            // setando a m·scara
+            // setando a m√°scara
         if (this.getModel()instanceof BeanTableModel) {
             BeanTableModel model = (BeanTableModel)this.getModel();
             String mascara = model.getMascara(row, col);
@@ -333,8 +333,8 @@ public class BeanTable
     public void changeSelection(int rowIndex, int columnIndex, boolean toggle, boolean extend) {
         TableModel model = getModel();
 
-        // proibir que as cÈlulas na coluna de nomes
-        // ganhem o foco repassando a solicitaÁao de
+        // proibir que as c√©lulas na coluna de nomes
+        // ganhem o foco repassando a solicita√ßao de
         // foco nestas colunas para a coluna de valores
         // se o model for BeanTableModel2
         if (model instanceof BeanTableModel2) {

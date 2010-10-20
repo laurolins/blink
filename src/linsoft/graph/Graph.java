@@ -132,15 +132,15 @@ private void depthFirstSearch(Vertex v)
 	}
 }
 /**
- * Executa um breadth first search nas arestas de uma ·rvore gerada por um DFS.
- * Este algoritmo È baseado nos seguintes teoremas seja "G" um grafo e "G'"
- * um DFS subgrafo (uma ·rvore) de "G":
+ * Executa um breadth first search nas arestas de uma √°rvore gerada por um DFS.
+ * Este algoritmo √© baseado nos seguintes teoremas seja "G" um grafo e "G'"
+ * um DFS subgrafo (uma √°rvore) de "G":
  * 1.
- *    se "v" um vÈrtice n„o raiz de "G'" ent„o:
- *    v È vÈrtice de corte (se e somente se) existe "v'" descendente de "v" (em G'), e "u" descendente (em G')
+ *    se "v" um v√©rtice n√£o raiz de "G'" ent√£o:
+ *    v √© v√©rtice de corte (se e somente se) existe "v'" descendente de "v" (em G'), e "u" descendente (em G')
  *    ou igual a "u" tal que existe uma aresta de retorno (u,w) em "G" e "v" seja descendente de "w" (em G').
  * 2.
- *    se "v" È raiz de "G'" ent„o "v" È cut-vertex se e somente se seu grau for maior que 1 em "G'" (ou seja tem
+ *    se "v" √© raiz de "G'" ent√£o "v" √© cut-vertex se e somente se seu grau for maior que 1 em "G'" (ou seja tem
  *    pelo menos dois descendentes diretos (dois filhos).
  */
 public boolean[] findCutVertices()
@@ -340,7 +340,7 @@ public static void main(String argv[])
 
 	// cut vertices
 	System.out.println("....................................................................................");
-	System.out.println("Cut Vertices. (Pontos de ArticulaÁ„o)");
+	System.out.println("Cut Vertices. (Pontos de Articula√ß√£o)");
 	boolean[] cutVertices = g.findCutVertices();
 	for (int i = 0; i < cutVertices.length; i++)
 	{
@@ -453,17 +453,17 @@ private int mountLowVectorVisit(Vertex parent, Vertex v, int[] low)
 		// adiantar lista.
 		vl = vl.getNext();
 
-		// n„o considerar a aresta que vai para o pai...
+		// n√£o considerar a aresta que vai para o pai...
 		if (parent == u)
 			continue;
 
-		// se u est· marcado ent„o (v,u) È aresta de retorno.
+		// se u est√° marcado ent√£o (v,u) √© aresta de retorno.
 		if (u.isMarked())
 		{
 			dw = Math.min(dw, u.getDiscoverTime());
 		}
 
-		// u È descendente de v.
+		// u √© descendente de v.
 		if (!u.isMarked())
 		{
 			dw = Math.min(dw, this.mountLowVectorVisit(v, u, low));
@@ -585,7 +585,7 @@ public static void oldmain(String argv[])
 	Graph tree = g.mcst();
 	System.out.println(tree.toString());
 	System.out.println("......");
-	System.out.println("Cut Vertexes. (Pontos de ArticulaÁ„o)");
+	System.out.println("Cut Vertexes. (Pontos de Articula√ß√£o)");
 	boolean[] cutVertices = g.findCutVertices();
 	for (int i = 0; i < cutVertices.length; i++)
 		System.out.println("" + (i + 1) + " -> " + cutVertices[i]);
@@ -607,7 +607,7 @@ public Walk[][] shortestPath()
 	// arrive by the shortest path in j
 	// (if the path is <i,j> Z[i][j] = j)
 
-	// inicializar a matriz de dist‚ncias D0
+	// inicializar a matriz de dist√¢ncias D0
 	for (i = 0; i < _n; i++)
 	{
 		for (j = 0; j < _n; j++)
@@ -635,13 +635,13 @@ public Walk[][] shortestPath()
 	for (k = 0; k < _n; k++)
 	{
 
-		// seja k o ponto intermedi·rio de um caminho de i para j
+		// seja k o ponto intermedi√°rio de um caminho de i para j
 		for (i = 0; i < _n; i++)
 		{
 			for (j = 0; j < _n; j++)
 			{
 
-				// qual o comprimento deste caminho? È melhor do que o que j· existe?
+				// qual o comprimento deste caminho? √© melhor do que o que j√° existe?
 				if (i == k || j == k || i == j)
 					continue;
 				if (D[i][k] != -1 && D[k][j] != -1)
@@ -739,7 +739,7 @@ public Walk[] shortestPath(int label)
 			Edge e = _edges[u - 1][v - 1];
 			int u0vLength;
 
-			// calcular a dist‚ncia entre u0 e v por u.
+			// calcular a dist√¢ncia entre u0 e v por u.
 			if (e == null)
 				u0vLength = -1;
 			else
@@ -748,14 +748,14 @@ public Walk[] shortestPath(int label)
 				else
 					u0vLength = e.getWeight() + length[u - 1];
 
-			// atualizar length de u0 para v caso seja menor que a dist‚ncia corrente
+			// atualizar length de u0 para v caso seja menor que a dist√¢ncia corrente
 			if (u0vLength >= 0 && (length[v - 1] > u0vLength || length[v - 1] == -1))
 			{
 				length[v - 1] = u0vLength;
 				parent[v - 1] = u;
 			}
 
-			// manter o vÈrtice de !S (not S, S complement) com menor dist‚ncia para u0 em nextU
+			// manter o v√©rtice de !S (not S, S complement) com menor dist√¢ncia para u0 em nextU
 			if (nextU == -1 || (length[v - 1] >= 0 && (nextULength > length[v - 1] || nextULength == -1)))
 			{
 				nextU = v;
@@ -763,7 +763,7 @@ public Walk[] shortestPath(int label)
 			}
 		}
 
-		// adicionar em S nextU que È o vÈrtice de !S com dist‚ncia minimal para u0.
+		// adicionar em S nextU que √© o v√©rtice de !S com dist√¢ncia minimal para u0.
 		S.addLabel(nextU);
 	}
 
@@ -811,7 +811,7 @@ public int[][] shortestPathLength()
 	int i, j, k;
 	int[][] D = new int[_n][_n];
 
-	// inicializar a matriz de dist‚ncias D0
+	// inicializar a matriz de dist√¢ncias D0
 	for (i = 0; i < _n; i++)
 	{
 		for (j = 0; j < _n; j++)
@@ -829,13 +829,13 @@ public int[][] shortestPathLength()
 	// iterar _n vezes
 	for (k = 0; k < _n; k++)
 	{
-		// seja k o ponto intermedi·rio de um caminho de i para j
+		// seja k o ponto intermedi√°rio de um caminho de i para j
 		for (i = 0; i < _n; i++)
 		{
 			for (j = 0; j < _n; j++)
 			{
 
-				// qual o comprimento deste caminho? È melhor do que o que j· existe?
+				// qual o comprimento deste caminho? √© melhor do que o que j√° existe?
 				if (i == k || j == k || i == j)
 					continue;
 				if (D[i][k] != -1 && D[k][j] != -1)
@@ -890,7 +890,7 @@ public int[] shortestPathLength(int label)
 			Edge e = _edges[u - 1][v - 1];
 			int u0vLength;
 
-			// calcular a dist‚ncia entre u0 e v por u.
+			// calcular a dist√¢ncia entre u0 e v por u.
 			if (e == null)
 				u0vLength = -1;
 			else
@@ -899,11 +899,11 @@ public int[] shortestPathLength(int label)
 				else
 					u0vLength = e.getWeight() + length[u - 1];
 
-			// atualizar length de u0 para v caso seja menor que a dist‚ncia corrente
+			// atualizar length de u0 para v caso seja menor que a dist√¢ncia corrente
 			if (u0vLength >= 0 && (length[v - 1] > u0vLength || length[v - 1] == -1))
 				length[v - 1] = u0vLength;
 
-			// manter o vÈrtice de !S (not S, S complement) com menor dist‚ncia para u0 em nextU
+			// manter o v√©rtice de !S (not S, S complement) com menor dist√¢ncia para u0 em nextU
 			if (nextU == -1 || (length[v - 1] >= 0 && (nextULength > length[v - 1] || nextULength == -1)))
 			{
 				nextU = v;
@@ -911,7 +911,7 @@ public int[] shortestPathLength(int label)
 			}
 		}
 
-		// adicionar em S nextU que È o vÈrtice de !S com dist‚ncia minimal para u0.
+		// adicionar em S nextU que √© o v√©rtice de !S com dist√¢ncia minimal para u0.
 		S.addLabel(nextU);
 	}
 	return length;
@@ -1111,22 +1111,22 @@ private void tagDFSTreeVisit(Vertex parent, Vertex v)
 		// adiantar lista.
 		vl = vl.getNext();
 
-		// n„o considerar a aresta que vai para o pai...
+		// n√£o considerar a aresta que vai para o pai...
 		if (parent == u)
 			continue;
 
-		// se u est· marcado ent„o È aresta de retorno.
+		// se u est√° marcado ent√£o √© aresta de retorno.
 		if (u.isMarked()) {
 		   // arestas de retorno ficam desmarcadas.
 			_edges[v.getLabel()-1][u.getLabel()-1].unmark();
 		}
 
-		// se u n„o est· marcado ent„o È aresta da ·rvore.
+		// se u n√£o est√° marcado ent√£o √© aresta da √°rvore.
 		if (!u.isMarked()) {
-		   // arestas de ·rvores s„o marcadas
+		   // arestas de √°rvores s√£o marcadas
 			_edges[v.getLabel()-1][u.getLabel()-1].mark();
 
-			// marcar nÛs das sub-·rvores
+			// marcar n√≥s das sub-√°rvores
 			tagDFSTreeVisit(v,u);
 		}
 	}

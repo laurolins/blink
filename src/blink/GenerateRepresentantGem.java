@@ -97,24 +97,24 @@ public class GenerateRepresentantGem {
                             if (!_set.contains(lCopy)) {
                                 Dipole d = (new Gem(copy.getCurrentLabelling())).findAnyDipole();
                                 if (d != null) {
-                                    System.out.println(""+copy.getCurrentLabelling().getLettersString(",")+" tem simplificaÁ„o: ");
+                                    System.out.println(""+copy.getCurrentLabelling().getLettersString(",")+" tem simplifica√ß√£o: ");
                                     System.out.println("Found "+d);
                                     return copy;
                                 }
                                 RhoPair r2 = (new Gem(copy.getCurrentLabelling())).findAnyRho2Pair();
                                 if (r2 != null) {
-                                    System.out.println(""+copy.getCurrentLabelling().getLettersString(",")+" tem simplificaÁ„o: ");
+                                    System.out.println(""+copy.getCurrentLabelling().getLettersString(",")+" tem simplifica√ß√£o: ");
                                     System.out.println("Found "+r2);
                                     return copy;
                                 }
                                 RhoPair r3 = (new Gem(copy.getCurrentLabelling())).findAnyRho3Pair();
                                 if (r3 != null) {
-                                    System.out.println(""+copy.getCurrentLabelling().getLettersString(",")+" tem simplificaÁ„o: ");
+                                    System.out.println(""+copy.getCurrentLabelling().getLettersString(",")+" tem simplifica√ß√£o: ");
                                     System.out.println("Found "+r3);
                                     return copy;
                                 }
 
-                                // System.out.println("N√O");
+                                // System.out.println("N√ÉO");
                                 _set.add(lCopy);
                                 _unprocessed.add(lCopy);
                             }

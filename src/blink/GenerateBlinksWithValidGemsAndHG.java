@@ -82,7 +82,7 @@ public class GenerateBlinksWithValidGemsAndHG {
 
                 blinks++;
 
-                // para cada coloraÁ„o v·lida
+                // para cada colora√ß√£o v√°lida
                 int countRed = 0;
                 for (int e=1;e<=epp.size();e++) {
                     BlinkColor cor = (k & (0x01 << (e - 1))) == 0 ? BlinkColor.green : BlinkColor.red;

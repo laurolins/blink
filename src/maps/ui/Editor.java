@@ -428,7 +428,7 @@ public class Editor  {
                     this.addEdge(na, nb);
                 } catch (RuntimeException e1) {
                     JOptionPane
-                            .showMessageDialog(_drawPanel, "Não pode haver loops!");
+                            .showMessageDialog(_drawPanel, "NÃ£o pode haver loops!");
                     e1.printStackTrace();
                 }
             }

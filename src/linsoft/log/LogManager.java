@@ -14,7 +14,7 @@ public class LogManager {
 
 
 	/**
-	 * Retorna o Ìndice do log dentro do array _logs.
+	 * Retorna o √≠ndice do log dentro do array _logs.
 	 */
 	public int addLog(String name, String filename, boolean persistent) throws IOException {
 		Log log = new Log(name, filename, persistent);
@@ -47,7 +47,7 @@ public class LogManager {
 		Log log = getLogByName(logName);
 		if(log != null)
 			log.write(msg);
-		else throw new RuntimeException("Log " + logName + " n„o existe.");
+		else throw new RuntimeException("Log " + logName + " n√£o existe.");
 	}
 
 
@@ -61,7 +61,7 @@ public class LogManager {
 		Log log = getLogByName(logName);
 		if(log != null)
 			log.writeWithTimestamp(msg);
-		else throw new RuntimeException("Log " + logName + " n„o existe.");
+		else throw new RuntimeException("Log " + logName + " n√£o existe.");
 	}
 
 
@@ -75,14 +75,14 @@ public class LogManager {
 		Log log = getLogByName(logName);
 		if(log != null)
 			log.setEnabled(enabled);
-		else throw new RuntimeException("Log " + logName + " n„o existe.");
+		else throw new RuntimeException("Log " + logName + " n√£o existe.");
 	}
 
 
 	public static void main(String[] args) {
 		LogManager logMan = new LogManager();
 		try {
-			// n„o persistente
+			// n√£o persistente
 			int l1 = logMan.addLog("log1", "arq1.log", false);
 
 			// persistente

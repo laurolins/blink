@@ -11,13 +11,13 @@ import javax.swing.border.Border;
 import linsoft.gui.border.BorderTLBR;
 
 /**
- * Classe que implementa um TableCellRenderer configur·vel.
- * Atributos configur·veis:
+ * Classe que implementa um TableCellRenderer configur√°vel.
+ * Atributos configur√°veis:
  *
- * fgColor - cor foreground quando cÈlula n„o selecionada
- * bgColor - cor background quando cÈlula n„o selecionada
- * selectedFgColor - cor foreground quando cÈlula selecionada
- * selectedBgColor - cor foreground quando cÈlula selecionada
+ * fgColor - cor foreground quando c√©lula n√£o selecionada
+ * bgColor - cor background quando c√©lula n√£o selecionada
+ * selectedFgColor - cor foreground quando c√©lula selecionada
+ * selectedBgColor - cor foreground quando c√©lula selecionada
  * alignment - alinhamento horizontal do texto {0 = LEFT, 1 = CENTER, 2 = RIGHT}
  */
 public abstract class ConfigurableCellRendererDefault
@@ -35,7 +35,7 @@ public abstract class ConfigurableCellRendererDefault
     private static final BorderTLBR _selectedBorder = new BorderTLBR(DefaultColors.DEFAULT_BORDER_COLOR,1,false,false,false,false);
 
     ///////////////////////////////////////////////////////
-    // INICIO: atributos configur·veis do cell renderer
+    // INICIO: atributos configur√°veis do cell renderer
     private Color _fgColor;
     private Color _bgColor;
     private Color _selectedBgColor;
@@ -44,7 +44,7 @@ public abstract class ConfigurableCellRendererDefault
     private Color _focusedFgColor;
     private Color _selectionBorderColor;
     private int _alignment;
-    // FIM: atributos configur·veis do cell renderer
+    // FIM: atributos configur√°veis do cell renderer
     ///////////////////////////////////////////////////////
 
     /**

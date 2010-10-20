@@ -28,11 +28,11 @@ public class ConfigurableCellRendererText extends ConfigurableCellRendererDefaul
      */
     private static Font _defaultFont = new javax.swing.plaf.FontUIResource("Tahoma", Font.PLAIN, 11);
 
-    // INICIO: atributos configur·veis do cell renderer
+    // INICIO: atributos configur√°veis do cell renderer
     private String _formatId;
     private Font _font;
     private JLabel _label;
-    // FIM: atributos configur·veis do cell renderer
+    // FIM: atributos configur√°veis do cell renderer
 
     public ConfigurableCellRendererText() {
         // formatter

@@ -113,7 +113,7 @@ public class NetworkGraphModel extends DefaultGraphModel {
             DefaultGraphCell tail = (DefaultGraphCell) _mapNode2Cell.get(a.get_tail());
             DefaultGraphCell head = (DefaultGraphCell) _mapNode2Cell.get(a.get_head());
             DefaultEdge edge = new DefaultEdge(a.getLabel());
-            cs.connect(edge, head.getChildAt(0), tail.getChildAt(0)); // a cabeça da seta é no source (parece um BUG em jGraph)
+            cs.connect(edge, head.getChildAt(0), tail.getChildAt(0)); // a cabeÃ§a da seta Ã© no source (parece um BUG em jGraph)
             if (a.isNonTreeArc())
                 attributes.put(edge, nonTreeArcStyle);
             else
@@ -307,7 +307,7 @@ public class NetworkGraphModel extends DefaultGraphModel {
         JScrollPane jGraphScrollPane = new JScrollPane(jGraph);
 
         // create labels and buttons
-        final JLabel lblIteracao = new JLabel("Iteração: "+_currentStep.getIndex());
+        final JLabel lblIteracao = new JLabel("IteraÃ§Ã£o: "+_currentStep.getIndex());
         final JLabel lblNetworkValue = new JLabel("Value: "+_currentStep.getValue());
         final JLabel lblYSum = new JLabel("Y Sum: "+_currentStep.getYSum());
         JButton btnLayout = new JButton("Layout");
@@ -349,7 +349,7 @@ public class NetworkGraphModel extends DefaultGraphModel {
 
                 // iterate
                 jGraph.setModel(_currentStep.getModel());
-                lblIteracao.setText("Iteração: "+_currentStep.getIndex());
+                lblIteracao.setText("IteraÃ§Ã£o: "+_currentStep.getIndex());
                 lblNetworkValue.setText("Value: "+_currentStep.getValue());
                 lblYSum.setText("Y Sum: "+_currentStep.getYSum());
             }
@@ -362,7 +362,7 @@ public class NetworkGraphModel extends DefaultGraphModel {
 
                 // iterate
                 jGraph.setModel(_currentStep.getModel());
-                lblIteracao.setText("Iteração: "+_currentStep.getIndex());
+                lblIteracao.setText("IteraÃ§Ã£o: "+_currentStep.getIndex());
                 lblNetworkValue.setText("Value: "+_currentStep.getValue());
                 lblYSum.setText("Y Sum: "+_currentStep.getYSum());
             }
@@ -470,7 +470,7 @@ public class NetworkGraphModel extends DefaultGraphModel {
         JScrollPane jGraphScrollPane = new JScrollPane(jGraph);
 
         // create labels and buttons
-        final JLabel lblIteracao = new JLabel("Iteração: "+_currentStep.getIndex());
+        final JLabel lblIteracao = new JLabel("IteraÃ§Ã£o: "+_currentStep.getIndex());
         final JLabel lblNetworkValue = new JLabel("Value: "+_currentStep.getValue());
         final JLabel lblYSum = new JLabel("Y Sum: "+_currentStep.getYSum());
         JButton btnLayout = new JButton("Layout");
@@ -512,7 +512,7 @@ public class NetworkGraphModel extends DefaultGraphModel {
 
                 // iterate
                 jGraph.setModel(_currentStep.getModel());
-                lblIteracao.setText("Iteração: "+_currentStep.getIndex());
+                lblIteracao.setText("IteraÃ§Ã£o: "+_currentStep.getIndex());
                 lblNetworkValue.setText("Value: "+_currentStep.getValue());
                 lblYSum.setText("Y Sum: "+_currentStep.getYSum());
             }
@@ -525,7 +525,7 @@ public class NetworkGraphModel extends DefaultGraphModel {
 
                 // iterate
                 jGraph.setModel(_currentStep.getModel());
-                lblIteracao.setText("Iteração: "+_currentStep.getIndex());
+                lblIteracao.setText("IteraÃ§Ã£o: "+_currentStep.getIndex());
                 lblNetworkValue.setText("Value: "+_currentStep.getValue());
                 lblYSum.setText("Y Sum: "+_currentStep.getYSum());
             }

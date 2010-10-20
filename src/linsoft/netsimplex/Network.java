@@ -130,16 +130,16 @@ public class Network {
     }
 
     /**
-     * MÈtodo usado para guardar uma network. Que pode ser recuperada depois por
+     * M√©todo usado para guardar uma network. Que pode ser recuperada depois por
      * Network(String fileName).
      */
     public void networkGenerator() {
-        // Ainda sem coment·rios... c.
+        // Ainda sem coment√°rios... c.
 
         // A linha que define o problema: minimizar o valor desta network...
         System.out.println("p min "+this.getNumberOfNodes()+" "+this.getNumberOfArcs());
 
-        // Todos os nÛs.
+        // Todos os n√≥s.
         for (int i=0;i<this.getNumberOfNodes()-this._numArtificialNodes;i++){
             Node node = this.getNode(i);
             System.out.println("n "+(i+1)+" "+node.get_b());
@@ -238,7 +238,7 @@ public class Network {
             // manter lista ligada de arcos
             // do tipo non-tree-arc.
             if (previousArc != null) {
-                // se nao for o primeiro arco faÁa...
+                // se nao for o primeiro arco fa√ßa...
                 previousArc.set_nextArcOfTheSameType(a);
             }
             else {
@@ -1254,7 +1254,7 @@ public class Network {
             _firstNonTreeArc = null;
         }
 
-        // se a cabeÁa da lista È a entao a cabeca passa a ser o next de a
+        // se a cabe√ßa da lista √© a entao a cabeca passa a ser o next de a
         else if (_firstNonTreeArc == a) {
             _firstNonTreeArc = n;
         }

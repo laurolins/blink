@@ -10,7 +10,7 @@ import linsoft.gui.table.CustomEditor;
 import linsoft.gui.table.CustomEditorListener;
 
 /**
- * Editor de células que chama uma janela de escolha de objetos.
+ * Editor de cÃ©lulas que chama uma janela de escolha de objetos.
  */
 public class ChoiceCustomEditor implements CustomEditor {
 

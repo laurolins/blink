@@ -4,7 +4,7 @@ import java.beans.IntrospectionException;
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * Painel com uma tabela BeanTable em que o modelo é um BeanTableModel.
+ * Painel com uma tabela BeanTable em que o modelo Ã© um BeanTableModel.
  */
 public class BeanPanel extends BeanTablePanel {
     private Object _object;

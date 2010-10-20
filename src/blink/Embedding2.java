@@ -1357,12 +1357,12 @@ class EPoly {
 
         if (denom.equals(denom.ZERO)) {
             // colinear?
-            System.out.println("Denominador È zero: n„o tem soluÁ„o");
+            System.out.println("Denominador √© zero: n√£o tem solu√ß√£o");
 
             /*
             // a reta r(k) = P1 + k(P2-P1)
             // encontrar k0 tal que r(k0) = (xq1, yy)
-            // se (yy == yq1) ent„o ok!
+            // se (yy == yq1) ent√£o ok!
 
             // check the case
             BigRational k0 = xq1.sub(xp1).div(xp2.sub(xp1));
@@ -1403,7 +1403,7 @@ class EPoly {
             s.compareTo(BigRational.ONE) >= 1 ||
             t.compareTo(BigRational.ZERO) <= 0 ||
             t.compareTo(BigRational.ONE) >= 1) {
-            // System.out.println("s ou t est„o fora de (0,1): n„o tem soluÁ„o");
+            // System.out.println("s ou t est√£o fora de (0,1): n√£o tem solu√ß√£o");
             return null;
         }
 
@@ -1464,12 +1464,12 @@ class EPoly {
 
         if (denom.equals(denom.ZERO)) {
             // colinear?
-            System.out.println("Denominador È zero: n„o tem soluÁ„o");
+            System.out.println("Denominador √© zero: n√£o tem solu√ß√£o");
 
             /*
             // a reta r(k) = P1 + k(P2-P1)
             // encontrar k0 tal que r(k0) = (xq1, yy)
-            // se (yy == yq1) ent„o ok!
+            // se (yy == yq1) ent√£o ok!
 
             // check the case
             BigRational k0 = xq1.sub(xp1).div(xp2.sub(xp1));
@@ -1510,7 +1510,7 @@ class EPoly {
             s.compareTo(BigRational.ONE) >= 1 ||
             t.compareTo(BigRational.ZERO) <= 0 ||
             t.compareTo(BigRational.ONE) >= 1) {
-            System.out.println("s ou t est„o fora de (0,1): n„o tem soluÁ„o");
+            System.out.println("s ou t est√£o fora de (0,1): n√£o tem solu√ß√£o");
             // return null;
         }
 
@@ -1573,14 +1573,14 @@ class EPoly {
         if (denom.equals(denom.ZERO)) {
             // a reta r(k) = P1 + k(P2-P1)
             // encontrar k0 tal que r(k0) = (xq1, yy)
-            // se (yy == yq1) ent„o ok!
+            // se (yy == yq1) ent√£o ok!
 
             // check the case
             BigRational k0 = xq1.sub(xp1).div(xp2.sub(xp1));
             BigRational yy = yp1.add(k0.mul(yp2.sub(yp1)));
 
             // colinear?
-            System.out.println("Denominador È zero: n„o tem soluÁ„o");
+            System.out.println("Denominador √© zero: n√£o tem solu√ß√£o");
             if (yy.compareTo(yq1) == 0) {
                 BigRational k1 = xq2.sub(xp1).div(xp2.sub(xp1));
                 System.out.println("they are colinear at "+k0+" and "+k1);
@@ -1617,7 +1617,7 @@ class EPoly {
             s.compareTo(BigRational.ONE) >= 1 ||
             t.compareTo(BigRational.ZERO) <= 0 ||
             t.compareTo(BigRational.ONE) >= 1) {
-            // System.out.println("s ou t est„o fora de (0,1): n„o tem soluÁ„o");
+            // System.out.println("s ou t est√£o fora de (0,1): n√£o tem solu√ß√£o");
             return 0;
         }
 

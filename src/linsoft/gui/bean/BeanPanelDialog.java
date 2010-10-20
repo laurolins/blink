@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.table.TableCellEditor;
 
 /**
- * Janela para ediÁ„o de um objeto bean.
+ * Janela para edi√ß√£o de um objeto bean.
  */
 public class BeanPanelDialog extends EditDialog {
 
@@ -39,7 +39,7 @@ public class BeanPanelDialog extends EditDialog {
     }
 
     /**
-     * Seta o editor da tabela que h· em _beanPanel.
+     * Seta o editor da tabela que h√° em _beanPanel.
      */
     public void setEditor(Class c, TableCellEditor edt) {
         _beanPanel.setEditor(c, edt);

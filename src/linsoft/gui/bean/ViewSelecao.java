@@ -56,7 +56,7 @@ public class ViewSelecao extends JDialog {
 	 * Constructor
 	 */
     public ViewSelecao(JFrame frame) {
-		super(frame,"Seleção de Registros",true);
+		super(frame,"SeleÃ§Ã£o de Registros",true);
 
 		//
 		_class = Object.class;

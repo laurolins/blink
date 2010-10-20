@@ -255,7 +255,7 @@ public class SearchAttractor {
                             candidate.applyTSMove(m);
                             candidate.goToCodeLabel();
 
-                            // System.out.println(""+candidate.getCurrentLabelling().getLettersString(',')+" tem simplificaÁ„o: ");
+                            // System.out.println(""+candidate.getCurrentLabelling().getLettersString(',')+" tem simplifica√ß√£o: ");
 
                             // if (candidate.getAgemality() != 0)
                             //    throw new RuntimeException("Oooooppppssss");
@@ -276,7 +276,7 @@ public class SearchAttractor {
                                 // check if it simplifies
                                 Dipole d = candidate.findAnyDipole();
                                 if (d != null) {
-                                    // System.out.println(""+candidate.getCurrentLabelling().getLettersString(",")+" tem simplificaÁ„o: ");
+                                    // System.out.println(""+candidate.getCurrentLabelling().getLettersString(",")+" tem simplifica√ß√£o: ");
                                     // System.out.println("Found "+d);
 
                                     _currentGem = candidate;
@@ -284,7 +284,7 @@ public class SearchAttractor {
                                 }
                                 RhoPair r3 = candidate.findAnyRho3Pair();
                                 if (r3 != null) {
-                                    // System.out.println(""+candidate.getCurrentLabelling().getLettersString(",")+" tem simplificaÁ„o: ");
+                                    // System.out.println(""+candidate.getCurrentLabelling().getLettersString(",")+" tem simplifica√ß√£o: ");
                                     // System.out.println("Found "+r3);
 
                                     _currentGem = candidate;
@@ -292,14 +292,14 @@ public class SearchAttractor {
                                 }
                                 RhoPair r2 = candidate.findAnyRho2Pair();
                                 if (r2 != null) {
-                                    // System.out.println(""+candidate.getCurrentLabelling().getLettersString(",")+" tem simplificaÁ„o: ");
+                                    // System.out.println(""+candidate.getCurrentLabelling().getLettersString(",")+" tem simplifica√ß√£o: ");
                                     // System.out.println("Found "+r2);
 
                                     _currentGem = candidate;
                                     return T_FOUND_SIMPLIFICATION;
                                 }
 
-                                // System.out.println("N√O");
+                                // System.out.println("N√ÉO");
                                 _currentTSClass.add(candidate);
                                 _unprocessed.add(candidate);
                             }

@@ -56,11 +56,11 @@ public class PanelTests extends JPanel {
     private JTextArea _output = new JTextArea();
     private JButton _run = newButton("Run","Ler, desenha, QI e HG");
     private JButton _save = newButton("Save","Salvar arquivo");
-    private JButton _open = newButton("Open","Abrir blink de arquivo com representação ciclica");
+    private JButton _open = newButton("Open","Abrir blink de arquivo com representaÃ§Ã£o ciclica");
     private JButton _rep = newButton("Rep.","Desenha representante");
-    private JButton _all = newButton("All","Ler e gera todas as colorações de arestas e escreve todo QI válido.");
+    private JButton _all = newButton("All","Ler e gera todas as coloraÃ§Ãµes de arestas e escreve todo QI vÃ¡lido.");
     private JButton _gem = newButton("Gem","Ler e escreve codigo da gema do blink.");
-    private JButton _bcr = newButton("BCR","Ler e escreve representação ciclica do blink.");
+    private JButton _bcr = newButton("BCR","Ler e escreve representaÃ§Ã£o ciclica do blink.");
     private JButton _dup = newButton("Dup","Duplicatas.");
     private JButton _findGem = newButton("F.Gem","Enontrar Gem. (Mapa Azul)");
     private JButton _att = newButton("Att","Attractor from Blink Cyclic Rep.");
@@ -258,7 +258,7 @@ public class PanelTests extends JPanel {
 
 
         ////////////////////////////////////////////
-        // Ações pelo teclado
+        // AÃ§Ãµes pelo teclado
         this.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.getKeyStroke('p'), "reidemeister");
         this.getActionMap().put("reidemeister", new ActionListReidemeisterIII());
         //
@@ -870,7 +870,7 @@ public class PanelTests extends JPanel {
                 return;
             }
         }
-        _output.setText("Não Cadastrado!");
+        _output.setText("NÃ£o Cadastrado!");
 
 
     }
@@ -920,7 +920,7 @@ public class PanelTests extends JPanel {
                 return;
             }
         }
-        _output.setText("Não Cadastrado!");
+        _output.setText("NÃ£o Cadastrado!");
     }
 
     private void drawBlinkGem() {

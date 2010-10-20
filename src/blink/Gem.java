@@ -761,7 +761,7 @@ public class Gem implements Cloneable, Comparable {
         GemVertex uu = u.getNeighbour(p.getColor());
         GemVertex vv = v.getNeighbour(p.getColor());
 
-        // descobrir um bigon comum ‡s duas arestas
+        // descobrir um bigon comum √†s duas arestas
         GemColor c = p.getColor();
         GemColor[] cs = new GemColor[] {c,null};
         for (GemColor cc: GemColor.getColorsOfColorSet(GemColor.getComplementColorSet(c))){
@@ -772,7 +772,7 @@ public class Gem implements Cloneable, Comparable {
             }
         }
 
-        // calcular a dist‚ncia entre u e v (num de arestas entre elas)
+        // calcular a dist√¢ncia entre u e v (num de arestas entre elas)
         int i=0;
         int k = 0;
         GemVertex x = u;
@@ -4983,10 +4983,10 @@ class ComponentRepository {
 
 
     /**
-     * @todo Esta rotina parece que n„o est· gerando
+     * @todo Esta rotina parece que n√£o est√° gerando
      * todas as possibilidades de enraizamento, pois
-     * ao tentar gerar todas as permutaÁıes que d„o
-     * o cÛdigo, para montar as strings, algumas
+     * ao tentar gerar todas as permuta√ß√µes que d√£o
+     * o c√≥digo, para montar as strings, algumas
      * ficaram faltando.
      *
      * @return ArrayList
@@ -5019,10 +5019,10 @@ class ComponentRepository {
             for (int i=0;i<n;i++) {
                 GemVertex vi = vs.get(i);
 
-                // ATEN«√O: prestar atenÁ„o que a cor 0 e 1 da permutaÁ„o
+                // ATEN√á√ÉO: prestar aten√ß√£o que a cor 0 e 1 da permuta√ß√£o
                 // troca a medida que i anda muda de paridade. Note o
-                // +i na hora de definir a permutaÁ„o de new PossibleRoot
-                // nas posiÁıes 0 e 1 no cÛdigo abaixo.
+                // +i na hora de definir a permuta√ß√£o de new PossibleRoot
+                // nas posi√ß√µes 0 e 1 no c√≥digo abaixo.
 
                 // System.out.println("Trying vertex "+vi+" "+Tests._ORIGINAL_LABEL.get(vi));
 

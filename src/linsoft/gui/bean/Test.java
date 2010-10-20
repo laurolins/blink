@@ -86,7 +86,7 @@ public class Test extends JFrame {
         jPanel1.setLayout(borderLayout1);
         _toolBar.setFloatable(false);
         _cbShowNumbers.setSelected(true);
-        _cbShowNumbers.setText("Coluna com Número");
+        _cbShowNumbers.setText("Coluna com NÃºmero");
         _cbShowNumbers.addActionListener(new Test__cbShowNumbers_actionAdapter(this));
         _splitPane.setOrientation(JSplitPane.VERTICAL_SPLIT);
         this.getContentPane().add(jPanel1, BorderLayout.CENTER);
