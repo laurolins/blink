@@ -15,8 +15,9 @@ LIBS3=$(subst $(space),$(comma),$(LIBS2))
 all:
 	#echo $(LIBS3)
 	# javac -classpath $(LIBS3):src/. src/blink/*.java 
-	find src/. | grep java$ | grep -v "#" | xargs -I {} -t javac -classpath $(LIBS3):$(ROOT)/src {}
-
+	# find src/. | grep java$ | grep -v "#" | xargs -I {} -t javac -classpath $(LIBS3):$(ROOT)/src {}
+	find . | grep [.]java$ > file.list
+	javac -classpath $(LIBS3):src/. @file.list
 
 run:
 	java -classpath $(LIBS3):src/. blink/cli/CommandLineInterface
