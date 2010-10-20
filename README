@@ -1,0 +1,8 @@
+# install mysql and make it run
+
+# run mysql and create database named blink
+mysql -u root
+create database blink;
+
+# exit mysql and dump the data e9.db in
+mysql -u root blink < data/e9.db
