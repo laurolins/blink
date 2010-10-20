@@ -1,0 +1,11 @@
+[PropertyInfo]
+_entries,java.util.ArrayList,false,false, , ,false,<default>
+_id,long,false,false, , ,true,<default>
+_rmax,int,false,false, , ,true,<default>
+entries,java.io.InputStream,false,false, , ,true,<default>
+hashCode,long,false,false, , ,true,<default>
+[IconNames]
+
+
+
+

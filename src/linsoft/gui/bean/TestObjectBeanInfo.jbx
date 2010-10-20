@@ -1,0 +1,12 @@
+[PropertyInfo]
+beanClass,Class,false,false, , ,false,<default>
+iconColor16x16Filename,String,false,false, , ,false,<default>
+iconColor32x32Filename,String,false,false, , ,false,<default>
+iconMono16x16Filename,String,false,false, , ,false,<default>
+iconMono32x32Filename,String,false,false, , ,false,<default>
+propertyDescriptors,PropertyDescriptor[],false,false, , ,true,<default>
+[IconNames]
+
+
+
+

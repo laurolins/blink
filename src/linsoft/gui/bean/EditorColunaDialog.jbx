@@ -1,0 +1,14 @@
+[PropertyInfo]
+_botaoCancelar,JButton,false,false, , ,false,<default>
+_botaoDescer,JButton,false,false, , ,false,<default>
+_botaoOk,JButton,false,false, , ,false,<default>
+_botaoSubir,JButton,false,false, , ,false,<default>
+_panel,JPanel,false,false, , ,false,<default>
+_scrollPane,JScrollPane,false,false, , ,false,<default>
+_table,JTable,false,false, , ,false,<default>
+gridBagLayout1,GridBagLayout,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

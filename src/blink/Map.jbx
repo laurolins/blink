@@ -1,0 +1,10 @@
+[PropertyInfo]
+_expandedCode,int[],false,false, , ,false,<default>
+edges,java.util.ArrayList,false,false, , ,true,<default>
+faces,java.util.ArrayList,false,false, , ,true,<default>
+vertices,java.util.ArrayList,false,false, , ,true,<default>
+[IconNames]
+
+
+
+

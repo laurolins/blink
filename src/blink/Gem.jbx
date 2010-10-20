@@ -1,0 +1,14 @@
+[PropertyInfo]
+_colors,blink.GemColor[],false,false, , ,false,<default>
+_k,int,false,false, , ,false,<default>
+_vertices,java.util.ArrayList,false,false, , ,false,<default>
+agemality,int,false,false, , ,true,<default>
+count,int,false,false, , ,false,<default>
+numberOfResidues,int[],false,false, , ,true,<default>
+numVertices,int,false,false, , ,true,<default>
+vertices,java.util.ArrayList,false,false, , ,true,<default>
+[IconNames]
+
+
+
+

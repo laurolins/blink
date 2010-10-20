@@ -1,0 +1,13 @@
+[PropertyInfo]
+_colors,long,false,false, , ,true,<default>
+_comment,String,false,false, , ,true,<default>
+_hg,String,false,false, , ,true,<default>
+_id,long,false,false, , ,true,<default>
+_mapCode,String,false,false, , ,true,<default>
+_numEdges,int,false,false, , ,true,<default>
+_qi,long,false,false, , ,true,<default>
+[IconNames]
+
+
+
+

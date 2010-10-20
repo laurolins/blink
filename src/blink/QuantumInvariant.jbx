@@ -1,0 +1,11 @@
+[PropertyInfo]
+_imaginary,double,false,false, , ,false,<default>
+_r,int,false,false, , ,false,<default>
+_real,double,false,false, , ,false,<default>
+_states,int,false,false, , ,false,<default>
+_time,long,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

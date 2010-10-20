@@ -1,0 +1,71 @@
+package blink;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+/**
+ * <p>Title: </p>
+ *
+ * <p>Description: </p>
+ *
+ * <p>Copyright: Copyright (c) 2006</p>
+ *
+ * <p>Company: </p>
+ *
+ * @author not attributable
+ * @version 1.0
+ */
+public class StructuralConjectureTest {
+    public StructuralConjectureTest() {
+    }
+
+    public static void main(String[] args) throws ClassNotFoundException, IOException, SQLException {
+        PrintWriter pw = new PrintWriter("c:/counterexamples");
+
+        GemEntry result = null;
+        int numregs = 1000;
+
+        long minId = 1;
+
+        int counterExamples = 0;
+        while (true) {
+            System.out.println("Querying from " + minId + " next " + numregs + " counterExmples: "+counterExamples);
+            ArrayList<GemEntry> gems = App.getRepositorio().getSomeGems(minId, -1, numregs);
+            if (gems.size() == 0)
+                break;
+            for (GemEntry e : gems) {
+                if (e.getId() >= minId) {
+                    minId = e.getId() + 1;
+                }
+                if (e.getCatalogNumber() == 0)
+                    continue;
+                Gem G = e.getGem();
+                int countFourCluster = G.findAllFourCluster().size();
+                if (countFourCluster != 0)
+                    continue;
+                int antipoles = G.findAllAntipoles().size();
+                if (antipoles != 0)
+                    continue;
+                ArrayList<Twistor> twistors = G.findAllTwistors();
+                if (twistors.size() != 0) {
+                    boolean foundAdjacent = false;
+                    for (Twistor t: twistors) {
+                        if (t.isAdjacent()) {
+                            foundAdjacent = true;
+                            break;
+                        }
+                    }
+                    if (foundAdjacent)
+                        continue;
+                }
+                // found counter example
+                pw.println("R "+e.getNumVertices()+" "+e.getCatalogNumber());
+                pw.flush();
+                counterExamples++;
+            }
+        }
+        pw.close();
+    }
+}

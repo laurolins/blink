@@ -1,0 +1,15 @@
+[PropertyInfo]
+_fgColor,java.awt.Color,false,false,_fgColor,_fgColor,true,<default>
+_brColor,java.awt.Color,false,false,_brColor,_brColor,true,<default>
+_focusColor,java.awt.Color,false,false,_focusColor,_focusColor,true,<default>
+_selectedBgColor,java.awt.Color,false,false,_selectedBgColor,_selectedBgColor,true,<default>
+_selectedFgColor,java.awt.Color,false,false,_selectedFgColor,_selectedFgColor,true,<default>
+_horizontalAlignment,int,false,false,_horizontalAlignment,_horizontalAlignment,true,<default>
+_bold,boolean,false,false,_bold,_bold,true,<default>
+_italic,boolean,false,false,_italic,_italic,true,<default>
+_width,int,false,false,_width,_width,true,<default>
+[IconNames]
+
+
+
+

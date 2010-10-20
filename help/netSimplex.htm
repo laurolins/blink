@@ -1,0 +1,361 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 11 (filtered)">
+<title>twistor</title>
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US>
+
+<div class=Section1>
+
+<p class=MsoNormal><span style='font-size:18.0pt;font-family:"Courier New"'>netSimplex</span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-family:"Courier New"'>Description</span></b></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>Network simplex
+algorithm.&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-family:"Courier New"'>Examples</span></b></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>netSimplex(“res/example.net”)</span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-family:"Courier New"'>Usage</span></b></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-family:"Courier New"'>File Format</span></b></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>p &lt;netId&gt;
+&lt;numNodes&gt; &lt;numArcs&gt;</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n &lt;id&gt;
+&lt;flow&gt;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>a &lt;source&gt; &lt;target&gt;
+&lt;minCap&gt; &lt;maxCap&gt; &lt;cost&gt;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-family:"Courier New"'>Example of input
+file</span></b></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>p min 51 111</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 2 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 3 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 4 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 5 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 6 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 7 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 8 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 9 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 10 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 11 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 12 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 13 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 14 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 15 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 16 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 17 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 18 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 19 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 20 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 21 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 22 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 23 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 24 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 25 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 26 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 27 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 28 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 29 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 30 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 31 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 32 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 33 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 34 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 35 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 36 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 37 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 38 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 39 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 40 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 41 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 42 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 43 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 44 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 45 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 46 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 47 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 48 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 49 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>n 50 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 1 2 0 2
+0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 1 3 0 2
+0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 1 4 0 2
+0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 1 5 0 2
+0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 1 6 0 2
+0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 1 7 0 2
+0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 2 8 0 1
+0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 2 9 0 1
+0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 2 10 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 3 11 0
+1 0 </span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 3 12 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 3 13 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 4 14 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 4 15 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 4 16 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 5 17 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 5 18 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 5 19 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 6 20 0
+2 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 6 21 0
+2 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 6 22 0
+2 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 7 23 0
+2 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 7 24 0
+2 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 7 25 0
+2 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 10 30 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 11 26 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 13 31 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 19 36 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 20 27 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 21 28 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 21 29 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 23 32 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 23 33 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 24 34 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 24 35 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 25 37 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 26 44 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 27 39 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 28 40 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 29 41 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 30 42 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 31 49 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 32 44 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 33 45 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 34 46 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 35 47 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 36 48 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 37 49 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 38 50 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 39 50 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 40 50 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 41 50 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 42 50 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 43 50 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 44 50 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 45 50 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 46 50 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 47 50 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 48 50 0
+1 0</span></p>
+
+<p class=MsoNormal><span lang=PT-BR style='font-family:"Courier New"'>a 49 50 0
+1 0</span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New"'>a 50 1 0 2147483647
+-10000</span></p>
+
+</div>
+
+</body>
+
+</html>

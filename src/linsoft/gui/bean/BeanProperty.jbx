@@ -1,0 +1,26 @@
+[PropertyInfo]
+_contextEditable,boolean,false,false, , ,false,<default>
+_descricao,String,false,false, , ,false,<default>
+_descriptor,PropertyDescriptor,false,false, , ,false,<default>
+_formatter,ITextFormatter,false,false, , ,false,<default>
+_renderer,ConfigurableCellRenderer,false,false, , ,false,<default>
+_title,String,false,false, , ,false,<default>
+_titleRenderer,ConfigurableCellRenderer,false,false, , ,false,<default>
+_width,int,false,false, , ,false,<default>
+contextEditable,boolean,false,false, , ,true,<default>
+customEditorClass,Class,false,false, , ,false,<default>
+descricao,String,false,false, , ,true,<default>
+displayName,String,false,false, , ,false,<default>
+editable,boolean,false,false, , ,false,<default>
+formatter,ITextFormatter,false,false, , ,false,<default>
+name,String,false,false, , ,false,<default>
+propertyClass,Class,false,false, , ,false,<default>
+renderer,TableCellRenderer,false,false, , ,false,<default>
+title,String,false,false, , ,true,<default>
+titleRenderer,TableCellRenderer,false,false, , ,true,<default>
+width,int,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

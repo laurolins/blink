@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>bigon</title>
+</head>
+<body lang=EN-US>
+<p>bigon(map,edgeType1,edgeType2)</p>
+<p>edgeTypes: 0 = vertex, 1 = face, 2 = diagonal, 3 = angle</p>
+
+<p><b>example:</b></p>
+m = map(loadgraph("/tmp/g.txt")[1]) <br>
+vertexBigons = bigon(m,0,3) <br>
+faceBigons = bigon(m,1,3) <br>
+zigzagBigons = bigon(m,2,3) <br>
+
+</body>
+</html>

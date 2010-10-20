@@ -1,0 +1,16 @@
+[PropertyInfo]
+_alignment,int,false,false, , ,true,<default>
+_bgColor,Color,false,false, , ,true,<default>
+_border,Border,false,false, , ,false,<default>
+_fgColor,Color,false,false, , ,true,<default>
+_font,Font,false,false, , ,true,<default>
+_formatId,String,false,false, , ,false,<default>
+_formatter,ITextFormatter,false,false, , ,false,<default>
+_selectedBgColor,Color,false,false, , ,true,<default>
+_selectedFgColor,Color,false,false, , ,true,<default>
+_textField,JTextField,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

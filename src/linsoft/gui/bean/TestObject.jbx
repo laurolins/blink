@@ -1,0 +1,14 @@
+[PropertyInfo]
+_boolean,boolean,false,false, , ,true,<default>
+_date,Date,false,false, , ,true,<default>
+_double,double,false,false, , ,true,<default>
+_float,float,false,false, , ,true,<default>
+_int,int,false,false, , ,true,<default>
+_long,long,false,false, , ,true,<default>
+_short,short,false,false, , ,true,<default>
+_string,String,false,false, , ,true,<default>
+[IconNames]
+
+
+
+

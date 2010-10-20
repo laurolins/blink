@@ -1,0 +1,12 @@
+[PropertyInfo]
+_blinks,java.util.ArrayList,false,false, , ,true,<default>
+_hg,String,false,false, , ,true,<default>
+_loaded,boolean,false,false, , ,true,<default>
+_numElements,int,false,false, , ,true,<default>
+_qi,long,false,false, , ,true,<default>
+blinks,java.util.ArrayList,false,false, , ,true,<default>
+[IconNames]
+
+
+
+
