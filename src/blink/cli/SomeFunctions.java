@@ -997,7 +997,7 @@ class FunctionPrint extends Function {
         }
         else if (o instanceof Gem) {
             Gem G = (Gem) o;
-            return "\""+G.getCurrentLabelling()+"\"";
+            return "\""+G.getCurrentLabelling().getLettersString("")+"\"";
         }
         else if (o instanceof ClassEntry) {
             return ((ClassEntry) o).getDescription();
