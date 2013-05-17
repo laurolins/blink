@@ -305,16 +305,18 @@ public class LinkDrawing {
         // draw labels
         pw.println("/Helvetica findfont 30 scalefont setfont");
         pw.println(String.format("%.2f %.2f %.2f setrgbcolor",0.0,0.0,0.0));
-        for (int edgeLabel: _edgeLabelToPosition.keySet()) {
-        	Point2D.Double p = _edgeLabelToPosition.get(edgeLabel);
-        	Point2D.Double pp = new Point2D.Double();
-        	T.transform(p, pp);        	
-            pw.println(String.format("%.4f %.4f moveto", pp.x, pp.y));
-            pw.println("gsave");
-            pw.println("1 -1 scale");
-            pw.println(String.format("(%d) show", edgeLabel));
-            pw.println("grestore");
-        }
+
+        // for (int edgeLabel: _edgeLabelToPosition.keySet()) {
+        // 	Point2D.Double p = _edgeLabelToPosition.get(edgeLabel);
+        // 	Point2D.Double pp = new Point2D.Double();
+        // 	T.transform(p, pp);        	
+        //     pw.println(String.format("%.4f %.4f moveto", pp.x, pp.y));
+        //     pw.println("gsave");
+        //     pw.println("1 -1 scale");
+        //     pw.println(String.format("(%d) show", edgeLabel));
+        //     pw.println("grestore");
+        // }
+
         pw.println("grestore");
     }
 }

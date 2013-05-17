@@ -12,12 +12,16 @@ LIBS3=$(subst $(space),$(comma),$(LIBS2))
 # LIBS2=$(patsubst %, $(ROOT)/lib/%, $(LIBS))
 
 all:
-	#echo $(LIBS3)
-	# javac -classpath $(LIBS3):src/. src/blink/*.java 
-	# find src/. | grep java$ | grep -v "#" | xargs -I {} -t javac -classpath $(LIBS3):$(ROOT)/src {}
-	find . | grep [.]java$ > file.list
+	find . | egrep "[.]java$$" > file.list
 	javac -classpath $(LIBS3):src/. @file.list
+
+#echo $(LIBS3)
+# javac -classpath $(LIBS3):src/. src/blink/*.java 
+# find src/. | grep java$ | grep -v "#" | xargs -I {} -t javac -classpath $(LIBS3):$(ROOT)/src {}
 
 
 run:
 	java -classpath $(LIBS3):src/. blink/cli/CommandLineInterface
+
+
+

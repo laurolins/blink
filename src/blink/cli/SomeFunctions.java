@@ -4317,11 +4317,18 @@ class FunctionSearchPath extends Function {
            S.add(n.longValue());
        }
 
+       //
+       // searchPath(75610, 75611, r=3, u=1, t=5, connect=75623)
+       // S = {75610, 75611}
+       // testSet = S \cup {75623}
+       //
+       
        HashSet<Long> testSet = new HashSet<Long>();
        testSet.addAll(S);
        if (connect != -1)
            testSet.add(connect);
 
+       
 
        // try 3 times to find an arrow from each starting point
        // or exit if it becomes connected
@@ -4330,7 +4337,7 @@ class FunctionSearchPath extends Function {
            for (long id : S) {
                System.out.println("Trying path from "+id);
                GemEntry source = App.getRepositorio().getGemById(id);
-
+               
                //if (source.getNumVertices() > 50)
                //    continue;
 

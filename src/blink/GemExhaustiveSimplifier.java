@@ -253,7 +253,7 @@ public class GemExhaustiveSimplifier {
         while (!_unprocessed.isEmpty()) {
 
             int N = _unprocessed.size();
-            int k = _random.nextInt(N);
+            int k = 0; // _random.nextInt(N);
             Gem g0 = _unprocessed.get(k);
             _unprocessed.set(k,_unprocessed.get(N-1));
             _unprocessed.remove(N-1);

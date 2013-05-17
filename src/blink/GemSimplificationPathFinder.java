@@ -52,11 +52,16 @@ public class GemSimplificationPathFinder {
 
     Random _random = new Random();
 
-    public GemSimplificationPathFinder(Gem g, int k, long maxTime, int tsClassSize) {
+    public GemSimplificationPathFinder(
+    		Gem  g, 
+    		int  starting_num_umoves, 
+    		long max_time, 
+    		int  ts_class_size) 
+    {
         System.out.println("Start GemSimplificationPathFinder (new map)");
 
         _gem = g;
-        _maxTime = maxTime;
+        _maxTime = max_time;
 
         // create graph and mapping
         _G = new SparseGraph();
@@ -71,9 +76,9 @@ public class GemSimplificationPathFinder {
         _currentGem = _gem;
         _bestGem = _gem;
         _bestGemIsTSClassRepresentant = true;
-        _bestGemTSClassSize = tsClassSize;
+        _bestGemTSClassSize = ts_class_size;
 
-        for (int i = 0; i < k; i++)
+        for (int i = 0; i < starting_num_umoves; i++)
             U();
 
         // simplify and go to ts-class
@@ -145,7 +150,7 @@ public class GemSimplificationPathFinder {
         System.out.println("Running T");
 
         // System.out.println("Processing:\n"+l.getLettersString(' '));
-        Gem g = _currentGem;
+        Gem gem = _currentGem;
 
         // to search on the TS-Class the labelling
         // must be normalized, so the first step
@@ -153,47 +158,47 @@ public class GemSimplificationPathFinder {
         // current gem.
         {
             // get this gem's vertex
-            Vertex uu = _map.get(g);
+            Vertex uu = _map.get(gem);
 
             // make g a copy of g labelled with the code labelling
-            g = g.copy();
-            g.goToCodeLabel();
+            gem = gem.copy();
+            gem.goToCodeLabel();
 
             // got to an already existing path
             // if it is the first time this occurs
             // (bestGem == null) then we need to continue...
-            if (_bestGem != null &&  _map.get(g) != null) {
+            if (_bestGem != null &&  _map.get(gem) != null) {
                 return T_SAMEPATH;
             }
 
             //
             Move move = new RelabelMove(
-                    g.getLastGoToCodeLabellingRootVertexLabel(),
-                    g.getLastGoToCodeLabellingColorsPermutation()
+                    gem.getLastGoToCodeLabellingRootVertexLabel(),
+                    gem.getLastGoToCodeLabellingColorsPermutation()
             );
 
             // append node
-            this.appendNewNodeToGraph(g,move,uu);
+            this.appendNewNodeToGraph(gem,move,uu);
 
             // change current gem
-            _currentGem = g;
+            _currentGem = gem;
         }
 
 
         // for robustness, test if the given gem
         // has a simplification point.
         {
-            Dipole d = g.findAnyDipole();
+            Dipole d = gem.findAnyDipole();
             if (d != null) {
                 System.out.println("Found " + d);
                 return T_FOUND_SIMPLIFICATION;
             }
-            RhoPair r3 = g.findAnyRho3Pair();
+            RhoPair r3 = gem.findAnyRho3Pair();
             if (r3 != null) {
                 System.out.println("Found " + r3);
                 return T_FOUND_SIMPLIFICATION;
             }
-            RhoPair r2 = g.findAnyRho2Pair();
+            RhoPair r2 = gem.findAnyRho2Pair();
             if (r2 != null) {
                 System.out.println("Found " + r2);
                 return T_FOUND_SIMPLIFICATION;
@@ -204,22 +209,23 @@ public class GemSimplificationPathFinder {
         _currentTSClass = new HashSet<Gem>();
         ArrayList<Gem> _unprocessed = new ArrayList<Gem>();
 
-        _unprocessed.add(g);
-        _currentTSClass.add(g);
+        _unprocessed.add(gem);
+        _currentTSClass.add(gem);
 
-        TSMoveType[] types = TSMoveType.values(); // {TSMoveType.TS5,TSMoveType.TS6};
+        TSMoveType[] types = TSMoveType.values(); // {TSMoveType.TS1, ..., TSMoveType.TS6};
 
         boolean timeout = false;
 
         while (!_unprocessed.isEmpty()) {
 
-            int N = _unprocessed.size();
-            int k = _random.nextInt(N);
-            Gem g0 = _unprocessed.get(k);
-            _unprocessed.set(k,_unprocessed.get(N-1));
+        		// select a random Gem from the list of unprocessed ones
+        		int N = _unprocessed.size();
+            int random_unprocessed_index = _random.nextInt(N);
+            Gem g0 = _unprocessed.get(random_unprocessed_index);
+            _unprocessed.set(random_unprocessed_index,_unprocessed.get(N-1));
             _unprocessed.remove(N-1);
 
-            // get vertex of current labelling
+            // get vertex of current labeling
             Vertex u = _map.get(g0);
 
             for (GemVertex v: g0.getVertices()) {
@@ -335,7 +341,7 @@ public class GemSimplificationPathFinder {
             // System.out.println("HG: "+gem.homologyGroup().toString());
 
             // get reduction graph vertex for "gem"
-            Vertex u = _map.get(gem);
+            Vertex current_vertex = _map.get(gem);
 
             // LOG ----------------------------------
             System.out.println("\nNum vertices: " + gem.getNumVertices()
@@ -395,7 +401,7 @@ public class GemSimplificationPathFinder {
                 }
 
                 // append node
-                this.appendNewNodeToGraph(gem,move,u);
+                this.appendNewNodeToGraph(gem,move,current_vertex);
 
                 // turn on simplified flag
                 simplified = true;
@@ -403,7 +409,7 @@ public class GemSimplificationPathFinder {
                 continue;
             }
             else if (foundRhoMove) {
-                debug(u);
+                debug(current_vertex);
                 throw new RuntimeException("Ooooopppsssss");
             }
 
@@ -429,7 +435,7 @@ public class GemSimplificationPathFinder {
                     return S_SAMEPATH;
 
                 // append node
-                this.appendNewNodeToGraph(gem,move,u);
+                this.appendNewNodeToGraph(gem,move,current_vertex);
 
                 // found rho move
                 foundRhoMove = true;
@@ -461,7 +467,7 @@ public class GemSimplificationPathFinder {
                     return S_SAMEPATH;
 
                 // append node
-                this.appendNewNodeToGraph(gem,move,u);
+                this.appendNewNodeToGraph(gem,move,current_vertex);
 
                 // found rho move
                 foundRhoMove = true;
@@ -701,6 +707,12 @@ public class GemSimplificationPathFinder {
         return result;
     }
 
+    /**
+     * Applies a random U-Move on _currentGem and adds the result
+     * to the current graph.
+     * 
+     * @return
+     */
     private boolean U() {
         System.out.println("Running U");
 
