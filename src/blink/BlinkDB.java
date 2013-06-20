@@ -1,5 +1,6 @@
 package blink;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -24,7 +25,7 @@ public class BlinkDB {
     public Connection getConnection() throws SQLException {
         if (_connection == null) {
         	try {
-				Class.forName("com.mysql.jdbc.Driver").newInstance();
+        		Class.forName("org.sqlite.JDBC").newInstance();
 			} catch (InstantiationException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -35,7 +36,7 @@ public class BlinkDB {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-            _connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/blink","root","");
+            _connection = DriverManager.getConnection("jdbc:sqlite:blink.db3");
         }
         return _connection;
         
@@ -347,7 +348,7 @@ public class BlinkDB {
         ResultSet rs = stmt.executeQuery("select id,dados from qi where id>="+minId+" and id<="+maxId);
         ArrayList<QI> result = new ArrayList<QI>();
         while (rs.next()) {
-           result.add(new QI(rs.getLong(1),rs.getBinaryStream(2)));
+           result.add(new QI(rs.getLong(1),new ByteArrayInputStream(rs.getBytes(2))));
         }
         rs.close();
         stmt.close();
@@ -360,7 +361,7 @@ public class BlinkDB {
         ResultSet rs = stmt.executeQuery("select id,dados from qi");
         ArrayList<QI> result = new ArrayList<QI>();
         while (rs.next()) {
-           result.add(new QI(rs.getLong(1),rs.getBinaryStream(2)));
+           result.add(new QI(rs.getLong(1),new ByteArrayInputStream(rs.getBytes(2))));
         }
         rs.close();
         stmt.close();
@@ -476,7 +477,7 @@ public class BlinkDB {
         ResultSet rs = stmt.executeQuery("select id,code,handle,tsclasssize,catalogNumber,status,minGem,tsRepresentant from gem where id>="+minId+" and id<="+maxId);
         ArrayList<GemEntry> result = new ArrayList<GemEntry>();
         while (rs.next()) {
-           result.add(new GemEntry(rs.getLong(1),rs.getBinaryStream(2),
+           result.add(new GemEntry(rs.getLong(1),new ByteArrayInputStream(rs.getBytes(2)),
                                    rs.getInt(3),rs.getInt(4),rs.getInt(5),
                                    rs.getInt(6),rs.getLong(7),rs.getBoolean(8)));
         }
@@ -492,7 +493,7 @@ public class BlinkDB {
         ResultSet rs = stmt.executeQuery("select id,code,handle,tsclasssize,catalogNumber,status,minGem,tsrepresentant from gem where numvert<=28 and id=mingem");
         ArrayList<GemEntry> result = new ArrayList<GemEntry>();
         while (rs.next()) {
-           result.add(new GemEntry(rs.getLong(1),rs.getBinaryStream(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getLong(7),rs.getBoolean(8)));
+           result.add(new GemEntry(rs.getLong(1),new ByteArrayInputStream(rs.getBytes(2)),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getLong(7),rs.getBoolean(8)));
         }
         rs.close();
         stmt.close();
@@ -507,7 +508,7 @@ public class BlinkDB {
         ResultSet rs = stmt.executeQuery("select id,code,handle,tsclasssize,catalogNumber,status,minGem,tsrepresentant from gem where hashcode="+hashcode+" and handle="+handleNumber);
         ArrayList<GemEntry> result = new ArrayList<GemEntry>();
         while (rs.next()) {
-           result.add(new GemEntry(rs.getLong(1),rs.getBinaryStream(2),
+           result.add(new GemEntry(rs.getLong(1),new ByteArrayInputStream(rs.getBytes(2)),
                                    rs.getInt(3),rs.getInt(4),rs.getInt(5),
                                    rs.getInt(6),rs.getLong(7),rs.getBoolean(8)));
         }
@@ -533,7 +534,7 @@ public class BlinkDB {
         ResultSet rs = stmt.executeQuery("select id,code,handle,tsclasssize,catalogNumber,status,minGem,tsrepresentant from gem where id in ("+st.toString()+")");
         ArrayList<GemEntry> result = new ArrayList<GemEntry>();
         while (rs.next()) {
-           result.add(new GemEntry(rs.getLong(1),rs.getBinaryStream(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getLong(7),rs.getBoolean(8)));
+           result.add(new GemEntry(rs.getLong(1),new ByteArrayInputStream(rs.getBytes(2)),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getLong(7),rs.getBoolean(8)));
         }
         rs.close();
         stmt.close();
@@ -563,7 +564,7 @@ public class BlinkDB {
         ResultSet rs = stmt.executeQuery("select dados from qi where id="+id);
         QI result = null;
         if (rs.next()) {
-           result = new QI(id,rs.getBinaryStream(1));
+           result = new QI(id,new ByteArrayInputStream(rs.getBytes(1)));
         }
         rs.close();
         stmt.close();
@@ -835,7 +836,7 @@ public class BlinkDB {
         ResultSet rs = stmt.executeQuery("select id,code,handle,tsclasssize,catalogNumber,status,minGem,tsrepresentant from gem where tsclasssize<>0");
         ArrayList<GemEntry> result = new ArrayList<GemEntry>();
         while (rs.next()) {
-           result.add(new GemEntry(rs.getLong(1),rs.getBinaryStream(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getLong(7),rs.getBoolean(8)));
+           result.add(new GemEntry(rs.getLong(1),new ByteArrayInputStream(rs.getBytes(2)),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getLong(7),rs.getBoolean(8)));
         }
         rs.close();
         stmt.close();
@@ -851,7 +852,7 @@ public class BlinkDB {
             "and numvert<="+maxVertices);
         ArrayList<GemEntry> result = new ArrayList<GemEntry>();
         while (rs.next()) {
-           result.add(new GemEntry(rs.getLong(1),rs.getBinaryStream(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getLong(7),rs.getBoolean(8)));
+           result.add(new GemEntry(rs.getLong(1),new ByteArrayInputStream(rs.getBytes(2)),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getLong(7),rs.getBoolean(8)));
         }
         rs.close();
         stmt.close();
@@ -909,7 +910,7 @@ public class BlinkDB {
         ResultSet rs = stmt.executeQuery("select id,path from blink where id in ("+st.toString()+")");
         while (rs.next()) {
             long id = rs.getLong(1);
-            map.get(id).set_path(rs.getBinaryStream(2));
+            map.get(id).set_path(new ByteArrayInputStream(rs.getBytes(2)));
         }
         rs.close();
         stmt.close();
@@ -934,7 +935,7 @@ public class BlinkDB {
         ResultSet rs = stmt.executeQuery("select id,path from blink where id in ("+st.toString()+")");
         while (rs.next()) {
             long id = rs.getLong(1);
-            map.get(id).set_path(rs.getBinaryStream(2));
+            map.get(id).set_path(new ByteArrayInputStream(rs.getBytes(2)));
         }
         rs.close();
         stmt.close();
@@ -1001,7 +1002,7 @@ public class BlinkDB {
             long id = rs.getLong(1);
             long source = rs.getLong(2);
             long target = rs.getLong(3);
-            InputStream pathStream = rs.getBinaryStream(4);
+            InputStream pathStream = new ByteArrayInputStream(rs.getBytes(4));
             result.add(new GemPathEntry(id,source,target,pathStream));
         }
         rs.close();
@@ -1086,7 +1087,7 @@ public class BlinkDB {
         ResultSet rs = stmt.executeQuery("select id,code,handle,tsclasssize,catalogNumber,status,minGem,tsrepresentant from gem where numvert="+numVertices+" and catalogNumber="+catalogNumber+" and handle="+handleNumber);
         GemEntry result = null;
         while (rs.next()) {
-           result = new GemEntry(rs.getLong(1),rs.getBinaryStream(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getLong(7),rs.getBoolean(8));
+           result = new GemEntry(rs.getLong(1),new ByteArrayInputStream(rs.getBytes(2)),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getLong(7),rs.getBoolean(8));
         }
         rs.close();
         stmt.close();
@@ -1100,7 +1101,8 @@ public class BlinkDB {
         ResultSet rs = stmt.executeQuery("select id,code,handle,tsclasssize,catalogNumber,status,minGem,tsrepresentant from gem where id="+id);
         GemEntry result = null;
         while (rs.next()) {
-           result = new GemEntry(rs.getLong(1),rs.getBinaryStream(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getLong(7),rs.getBoolean(8));
+        	ByteArrayInputStream bais = new ByteArrayInputStream(rs.getBytes(2));
+        	result = new GemEntry(rs.getLong(1),bais,rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getLong(7),rs.getBoolean(8));
         }
         rs.close();
         stmt.close();
@@ -1125,7 +1127,7 @@ public class BlinkDB {
         while (rs.next()) {
            result.add(new GemEntry(
                     rs.getLong(1),
-                    rs.getBinaryStream(2),
+                    new ByteArrayInputStream(rs.getBytes(2)),
                     rs.getInt(3),
                     rs.getInt(4),
                     rs.getInt(5),

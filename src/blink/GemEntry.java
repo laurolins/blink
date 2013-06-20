@@ -127,7 +127,7 @@ public class GemEntry implements Serializable {
         return new ByteArrayInputStream(data);
     }
 
-    private static Object decode(InputStream is) throws IOException, ClassNotFoundException {
+    public static Object decode(InputStream is) throws IOException, ClassNotFoundException {
         GZIPInputStream gzis = new GZIPInputStream(is);
         ObjectInputStream ois = new ObjectInputStream(gzis);
         Object result = ois.readObject();
