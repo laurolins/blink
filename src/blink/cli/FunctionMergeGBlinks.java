@@ -6,14 +6,18 @@ import blink.GBlink;
 import blink.GBlinkVertex;
 
 /**
- * <p>Title: </p>
- *
- * <p>Description: </p>
- *
- * <p>Copyright: Copyright (c) 2006</p>
- *
- * <p>Company: </p>
- *
+ * <p>
+ * A {@link CommandLineInterface} command that merges two
+ * {@link GBlink} <i>A</i> and <i>B</i>, at two given vertices <i>a</i> and
+ * <i>b</i>, where:<br>
+ * - <i>a</i> belongs to <i>A</i><br>
+ * - <i>b</i> belongs to <i>B</i><br>
+ * </p>
+ * 
+ * <p>
+ * Copyright: Copyright (c) 2013
+ * </p>
+ * 
  * @author not attributable
  * @version 1.0
  */

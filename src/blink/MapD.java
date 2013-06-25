@@ -63,6 +63,8 @@ public class MapD {
             double thetaMin,
             double thetaMax) {
         n.initPosition(level, x, y , theta, thetaMin, thetaMax);
+        // Shouldn't this verification happen before calling
+        // NodeD.initPosition() ?
         if (x < _minX) _minX = x;
         if (y < _minY) _minY = y;
         if (x > _maxX) _maxX = x;
@@ -95,7 +97,6 @@ public class MapD {
         return theta;
     }
 
-
     public MapD(GBlink map) {
         _map = map;
         _mapWord = _map.getMapWord();
@@ -103,8 +104,8 @@ public class MapD {
         _homology = (hg != null ? hg.toString().trim() : "");
 
 
-        // criar objetos VertexD e IncidentPointD
-        // preparar um mapa "Label -> IncidentPoint"
+        // create objects VertexD and IncidentPointD
+        // prepare a map "Label -> IncidentPoint"
         ArrayList<ArrayList<Integer>> vertices = _mapWord.getVertices();
         for (ArrayList<Integer> list: vertices) {
             VertexD v = addVertex();
@@ -117,7 +118,7 @@ public class MapD {
             }
         }
 
-        // setar os vizinhos dos IncidentPoints
+        // set IndicentPoints' neighbours
         for (int mapNodeLabel: _mapMapNodeLabel2IP.keySet()) {
             IncidentPointD ipSource = _mapMapNodeLabel2IP.get(mapNodeLabel);
             IncidentPointD ipTarget = _mapMapNodeLabel2IP.get(_mapWord.getNeighbour(mapNodeLabel,GBlinkEdgeType.vertex));
@@ -129,11 +130,11 @@ public class MapD {
 
         //
         LinkedList<NodeD> queue = new LinkedList<NodeD>();
-
-        // Criar uma spanning tree
-        // através de uma busca em largura a partir
-        // do vértice 0 e setar os parâmetros
-        // para a representação gráfica
+        
+        // Creates a spanning tree
+        // through a depth search starting
+        // from vertex 0 and sets the parameters
+        // to graphic representation
         _root = _vertices.get(0);
         this.initPosition(_root,0,0,0,0,0,2*Math.PI);
         _root.setMark(true);
@@ -153,7 +154,7 @@ public class MapD {
                // points correct!
                if (level > 0) {
                    IncidentPointD ip = (IncidentPointD) v.getParent();
-                   v.getParent();
+//                   v.getParent();
                    int index = ips.indexOf(ip);
                    ArrayList<IncidentPointD> aux = new ArrayList<IncidentPointD>();
                    aux.addAll(ips.subList(index,ips.size()));
@@ -703,18 +704,41 @@ class NodeD {
         return _thetaMax;
     }
 
+	/**
+	 * Gets this {@link NodeD}'s parent.
+	 * 
+	 * @return This {@link NodeD}'s current parent.
+	 */
     public NodeD getParent() {
         return _parent;
     }
 
+	/**
+	 * Sets this {@link NodeD}'s parent.
+	 * 
+	 * @param parent
+	 *            - the {@link NodeD} to be set as parent.
+	 */
     public void setParent(NodeD parent) {
         _parent = parent;
     }
 
+	/**
+	 * Get a every child of this {@link NodeD}; note that a clone of the actual
+	 * {@link ArrayList} is returned.
+	 * 
+	 * @return A copy of the child's {@link ArrayList}
+	 */
     public ArrayList<NodeD> getChilds() {
         return (ArrayList<NodeD>) _childs.clone();
     }
-
+    
+	/**
+	 * Adds a child in this {@link NodeD}, as well as making it a parent of <i>n</i>.
+	 * 
+	 * @param n
+	 *            - the {@link NodeD} to be added as a child.
+	 */
     public void addChild(NodeD n) {
         n.setParent(this);
         _childs.add(n);
@@ -823,6 +847,11 @@ class IncidentPointD extends NodeD {
         _neighbour = neighbour;
     }
 
+	/**
+	 * Gets this IncidentPointD current neighbour.
+	 * 
+	 * @return This IncidentPointD's current neighbour.
+	 */
     public IncidentPointD getNeighbour() {
         return _neighbour;
     }

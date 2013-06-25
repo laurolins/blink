@@ -6,13 +6,11 @@ import blink.GBlink;
 import blink.GBlinkVertex;
 
 /**
- * <p>Title: </p>
+ * <p>A {@link CommandLineInterface} command that retrieves the
+ * dual of a given vertex label of a given {@link GBlink}.
+ * The vertex must be present at the given {@link GBlink}.</p>
  *
- * <p>Description: </p>
- *
- * <p>Copyright: Copyright (c) 2006</p>
- *
- * <p>Company: </p>
+ * <p>Copyright: Copyright (c) 2013</p>
  *
  * @author not attributable
  * @version 1.0

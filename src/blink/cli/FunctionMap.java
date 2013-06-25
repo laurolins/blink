@@ -4,14 +4,15 @@ import java.util.HashMap;
 import java.util.Set;
 
 /**
- * <p>Title: </p>
- *
- * <p>Description: </p>
- *
- * <p>Copyright: Copyright (c) 2006</p>
- *
- * <p>Company: </p>
- *
+ * <p>
+ * This class is used to on {@link CommandLineInterface} store the
+ * mapping of function names to their respective {@link Function}.
+ * </p>
+ * 
+ * <p>
+ * Copyright: Copyright (c) 2013
+ * </p>
+ * 
  * @author not attributable
  * @version 1.0
  */

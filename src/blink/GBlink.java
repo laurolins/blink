@@ -613,7 +613,7 @@ public class GBlink implements Comparable {
      * 2. change the original parity.
      * 3. relabel map-vertex to become the lexicographically maximum (preserving parity).
      *
-     * Note that all colors become changed automatically.
+     * Note that all colours become changed automatically.
      */
     public void goToDual() {
         for (GBlinkVertex v: _vertices) {

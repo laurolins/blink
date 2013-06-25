@@ -8,14 +8,16 @@ import blink.GBlink;
 import blink.QI;
 
 /**
- * <p>Title: </p>
- *
- * <p>Description: </p>
- *
- * <p>Copyright: Copyright (c) 2006</p>
- *
- * <p>Company: </p>
- *
+ * <p>
+ * A {@link CommandLineInterface} command that calculates the
+ * quantum invariant of any {@link GBlink} or {@link BlinkEntry} passed as
+ * parameter.
+ * </p>
+ * 
+ * <p>
+ * Copyright: Copyright (c) 2013
+ * </p>
+ * 
  * @author not attributable
  * @version 1.0
  */

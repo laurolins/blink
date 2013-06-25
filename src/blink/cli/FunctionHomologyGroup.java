@@ -7,6 +7,19 @@ import blink.BlinkEntry;
 import blink.GBlink;
 import blink.HomologyGroup;
 
+/**
+ * <p>
+ * A {@link CommandLineInterface} command that retrieves the homology
+ * group of a given (or a list of) {@link GBlink}.
+ * </p>
+ * 
+ * <p>
+ * Copyright: Copyright (c) 2013
+ * </p>
+ * 
+ * @author not attributable
+ * @version 1.0
+ */
 public class FunctionHomologyGroup extends Function {
     public FunctionHomologyGroup() {
         super("hg","Homology Group");

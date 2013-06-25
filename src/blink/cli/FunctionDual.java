@@ -5,14 +5,11 @@ import java.util.ArrayList;
 import blink.GBlink;
 
 /**
- * <p>Title: </p>
+ * <p>A {@link CommandLineInterface} command that retrieves the
+ * dual of a (or a list of) {@link GBlink}.</p>
  *
- * <p>Description: </p>
- *
- * <p>Copyright: Copyright (c) 2006</p>
- *
- * <p>Company: </p>
- *
+ * <p>Copyright: Copyright (c) 2013</p>
+ * 
  * @author not attributable
  * @version 1.0
  */

@@ -5,14 +5,17 @@ import java.util.ArrayList;
 import blink.GBlink;
 
 /**
- * <p>Title: </p>
- *
- * <p>Description: </p>
- *
- * <p>Copyright: Copyright (c) 2006</p>
- *
- * <p>Company: </p>
- *
+ * <p>
+ * A {@link CommandLineInterface} command that retrieves the representative of a
+ * given (or a list of) {@link GBlink}. The flags <i>D</i>, <i>R</i> and
+ * <i>RD</i> can be set, which stand for <i>dual</i>, <i>reflection</i> and
+ * <i>reflection-dual</i> respectively.
+ * </p>
+ * 
+ * <p>
+ * Copyright: Copyright (c) 2013
+ * </p>
+ * 
  * @author not attributable
  * @version 1.0
  */
