@@ -5,6 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * <p>
+ * A {@link CommandLineInterface} command that applies a given
+ * function into several objects. The function must be the first parameter where
+ * as the list of objects must be applicable on the given function.
+ * </p>
+ * <p>
+ * For visibility sake, this is the pattern to call this function:<br>
+ * <i>apply(&lt;func&gt;, o1, o2, ...)</i>
+ * </p>
+ * 
+ * <p>
+ * Copyright: Copyright (c) 2013
+ * </p>
+ * 
+ * @author not attributable
+ * @version 1.0
+ */
 public class FunctionApply extends Function {
 
 	public FunctionApply() {

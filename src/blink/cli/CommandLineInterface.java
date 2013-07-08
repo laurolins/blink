@@ -126,7 +126,8 @@ public class CommandLineInterface {
                              new FunctionTwistor(),
                              new FunctionUpdateMinGem(),
                              new FunctionWhatSpace(),
-                             new FunctionGenerateRandomGem()
+                             new FunctionGenerateRandomGem(),
+                             new FunctionGemRes()
         };
         for (Function f : functions) {
             _functionMap.addFunction(f.getName(), f);
@@ -161,7 +162,7 @@ public class CommandLineInterface {
     }
 
     /**
-     * @todo The script "[]" does not throw an error. It should.
+     * @TODO The script "[]" does not throw an error. It should.
      * @param script String
      */
     public void execute(String script) {

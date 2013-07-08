@@ -12,14 +12,16 @@ import blink.GBlink;
 import blink.Library;
 
 /**
- * <p>Title: </p>
- *
- * <p>Description: </p>
- *
- * <p>Copyright: Copyright (c) 2006</p>
- *
- * <p>Company: </p>
- *
+ * <p>
+ * A {@link CommandLineInterface} command that retrieves a {@link GBlink}. The
+ * retrieval can be through id or code. A list of ids or codes can be passed as
+ * parameter, although this list may contain either only ids or only codes.
+ * </p>
+ * 
+ * <p>
+ * Copyright: Copyright (c) 2013
+ * </p>
+ * 
  * @author not attributable
  * @version 1.0
  */

@@ -9,14 +9,20 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
 /**
- * <p>Title: </p>
- *
- * <p>Description: </p>
- *
- * <p>Copyright: Copyright (c) 2006</p>
- *
- * <p>Company: </p>
- *
+ * <p>
+ * Description: A {@link CommandLineInterface} command that displays detailed
+ * information about a given function.
+ * </p>
+ * 
+ * <p>
+ * <b>WARNING:</b> This method is currently not working due to parsing issues;
+ * for further information about functions you can refer to javadocs or the
+ * project's <a href="https://github.com/laurolins/blink/wiki">wiki</a>.
+ * 
+ * <p>
+ * Copyright: Copyright (c) 2013
+ * </p>
+ * 
  * @author not attributable
  * @version 1.0
  */
@@ -39,7 +45,8 @@ public class FunctionHelp extends Function {
 
 
     private Object hardwork(ArrayList<Object> params, DataMap localData) throws EvaluationException, Exception {
-        String st = (String) params.get(0);
+    	String st = (String) params.get(0);
+//    	String st = "gem";
         //String helpDir = App.getProperty("helpdir");
         //if (helpDir == null)
         String helpDir = "help/";

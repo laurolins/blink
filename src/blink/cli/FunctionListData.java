@@ -4,14 +4,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * <p>Title: </p>
- *
- * <p>Description: </p>
- *
- * <p>Copyright: Copyright (c) 2006</p>
- *
- * <p>Company: </p>
- *
+ * <p>
+ * A {@link CommandLineInterface} command that list every available data in the
+ * current prompt session. For instance, if you declared the variables <i>x</i>
+ * and <i>y</i>, then this command will display those variables and their types.
+ * </p>
+ * 
+ * <p>
+ * Copyright: Copyright (c) 2013
+ * </p>
+ * 
  * @author not attributable
  * @version 1.0
  */

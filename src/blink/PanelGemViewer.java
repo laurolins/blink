@@ -635,6 +635,14 @@ public class PanelGemViewer extends JPanel {
         }
     }
 
+	/**
+	 * Creates a {@link SparseGraph} from a given {@link Gem}.
+	 * 
+	 * @param gem
+	 *            - a {@link Gem} to create its {@link SparseGraph}
+	 *            representation.
+	 * @return A {@link SparseGraph} that describes the given {@link Gem}.
+	 */
     private SparseGraph mountGraph(Gem gem) {
         // create the contracted graph with offColor c
         SparseGraph G = new SparseGraph();

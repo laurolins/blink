@@ -4,14 +4,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * <p>Title: </p>
- *
- * <p>Description: </p>
- *
- * <p>Copyright: Copyright (c) 2006</p>
- *
- * <p>Company: </p>
- *
+ * <p>
+ * A {@link CommandLineInterface} command that shows a short
+ * description of every function passed as parameter. In case no parameter is
+ * passed, the a short description of every function available will be
+ * displayed.
+ * </p>
+ * 
+ * <p>
+ * Copyright: Copyright (c) 2013
+ * </p>
+ * 
  * @author not attributable
  * @version 1.0
  */

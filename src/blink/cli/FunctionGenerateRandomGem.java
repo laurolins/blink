@@ -1,4 +1,5 @@
 package blink.cli;
+import blink.GBlink;
 import blink.Gem;
 import blink.GemVertex;
 
@@ -6,6 +7,19 @@ import java.util.ArrayList;
 import java.util.Random;
 //-> src/blink/cli/CommandLineInterface.java -> 128 -> , new Fun...
 
+/**
+ * <p>
+ * A {@link CommandLineInterface} command that generates a random
+ * {@link GBlink} with 8 times the number given as parameter.
+ * </p>
+ * 
+ * <p>
+ * Copyright: Copyright (c) 2013
+ * </p>
+ * 
+ * @author not attributable
+ * @version 1.0
+ */
 public class FunctionGenerateRandomGem extends Function {
 	public FunctionGenerateRandomGem() {
 		super("randg","Generate random Gem with 8*N vertexes");
