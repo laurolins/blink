@@ -188,7 +188,7 @@ public class Resoluvel {
 	        	result = AGPMDMX.get(i).first+" "+AGPMDMX.get(i).second;
 	        }
 	    }else{
-	    	result = nome+" Não e resoluvel";
+	    	result = nome+" Nao e resoluvel";
 	    }
 		return result;
 	}
