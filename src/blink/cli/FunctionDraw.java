@@ -23,7 +23,7 @@ import blink.PanelMapViewer;
  * Copyright: Copyright (c) 2013
  * </p>
  * 
- * @author not attributable
+ * @author Lauro Didier Lins
  * @version 1.0
  */
 public class FunctionDraw extends Function {

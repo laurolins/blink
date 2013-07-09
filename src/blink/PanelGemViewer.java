@@ -67,6 +67,8 @@ public class PanelGemViewer extends JPanel {
     SparseGraph _G;
     Gem _gem;
     Lens _lenses;
+    
+    /** A VisualizationViewer from JUNG library that holds the drawing of a {@link Gem}. */
     VisualizationViewer _view;
     PluggableRenderer _pluggableRenderer;
     HashMap<GemVertex,Vertex> _mapGV2V;
@@ -147,6 +149,7 @@ public class PanelGemViewer extends JPanel {
         bottomPanel.add(new JButton(new SimplifyGem(this,_gem)));
         bottomPanel.add(new JButton(new ResolveGem(this,_gem)));
         bottomPanel.add(new JButton(new SaveEPS(this,_gem)));
+        bottomPanel.add(new JButton(new SavePDF(this, _view)));
 
 
         String code;
@@ -744,7 +747,7 @@ public class PanelGemViewer extends JPanel {
          * axis), and the second one will be positioned with angle 1/n,
          * and the third one will be positioned with angle 2/n, and so on.
          * <p>
-         * The default implemention shuffles elements randomly.
+         * The default implementation shuffles elements randomly.
          */
         public void orderVertices(Vertex[] vertices) {
             List list = Arrays.asList(vertices);
