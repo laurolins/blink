@@ -15,11 +15,6 @@ import javax.swing.JScrollPane;
  * </p>
  * 
  * <p>
- * <b>WARNING:</b> This method is currently not working due to parsing issues;
- * for further information about functions you can refer to javadocs or the
- * project's <a href="https://github.com/laurolins/blink/wiki">wiki</a>.
- * 
- * <p>
  * Copyright: Copyright (c) 2013
  * </p>
  * 

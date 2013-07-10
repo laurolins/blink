@@ -24,15 +24,23 @@ import org.jscience.mathematics.numbers.Complex;
 
 
 /**
- * <p>Title: GBlink </p>
- *
- * <p>Description: As written on my thesis chapter, this is a GBFL with
- * a partition on the square edges on vertex-edge and face-edge.</p>
- *
- * <p>Copyright: Copyright (c) 2006</p>
- *
- * <p>Company: </p>
- *
+ * <p>
+ * Title: GBlink
+ * </p>
+ * 
+ * <p>
+ * Description: As written on my thesis chapter, this is a GBFL with a partition
+ * on the square edges on vertex-edge and face-edge.
+ * </p>
+ * 
+ * <p>
+ * Copyright: Copyright (c) 2013
+ * </p>
+ * 
+ * <p>
+ * Company:
+ * </p>
+ * 
  * @author Lauro Didier Lins
  * @version 1.0
  */
