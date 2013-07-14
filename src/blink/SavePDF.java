@@ -25,12 +25,12 @@ public class SavePDF extends AbstractAction {
 	private static final long serialVersionUID = 979401257782838856L;
 
 	private JPanel _panel;
-	private VisualizationViewer _gemViewer;
+	private VisualizationViewer _view;
 
-	public SavePDF(JPanel panel, VisualizationViewer gemViewer) {
+	public SavePDF(JPanel panel, VisualizationViewer view) {
 		super("PDF");
 		_panel = panel;
-		_gemViewer = gemViewer;
+		_view = view;
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class SavePDF extends AbstractAction {
 		if (lastPath != null) {
 			fc.setSelectedFile(new File(lastPath));
 		}
-		int r = fc.showOpenDialog(_panel);
+		int r = fc.showSaveDialog(_panel);
 		if (r == JFileChooser.APPROVE_OPTION) {
 			File selFile = fc.getSelectedFile();
 			App.setProperty("lastSavePDF", selFile.getAbsolutePath());
@@ -64,14 +64,18 @@ public class SavePDF extends AbstractAction {
 				document.open();
 				PdfContentByte contentByte = writer.getDirectContent();
 				PdfTemplate template = contentByte.createTemplate(500, 500);
-				// Graphics2D g2 = template.createGraphics(500, 500);
+//				Graphics2D g2 = template.createGraphics(500, 500);
 				Graphics2D g2 = new PdfGraphics2D(contentByte, width, height);
 				// the idea is that "width" and "height" might change their values
 				// for now a fixed value is being used
 				double scx = (500 / (double) width);
 				double scy = (500 / (double) height);
 				g2.scale(scx, scy);
-				_gemViewer.print(g2);
+				if(_view == null) {
+					_panel.print(g2);
+				} else {
+					_view.print(g2);
+				}
 				g2.dispose();
 				contentByte.addTemplate(template, 30, 300);
 				// contentByte.addTemplate(template,

@@ -1,5 +1,6 @@
 package blink.cli;
 
+import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -19,6 +20,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -80,6 +82,7 @@ import blink.PointOfReidemeisterIII;
 import blink.QI;
 import blink.Quartet;
 import blink.RhoPair;
+import blink.SavePDF;
 import blink.SearchAttractor;
 import blink.TryToConnectGemsFromTheSameHGQI;
 import blink.Twistor;

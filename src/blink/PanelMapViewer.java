@@ -18,6 +18,7 @@ import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -98,12 +99,13 @@ public class PanelMapViewer extends JPanel {
         bottomPanel.add(new JButton(new ActionZoom(1.20)));
         bottomPanel.add(new JButton(new ActionZoom(0.80)));
         bottomPanel.add(new JButton(new ShowLenses()));
+        bottomPanel.add(new JButton(new SavePDF(this, _view)));
 
         // layout panel
         this.setLayout(new BorderLayout());
         this.add(new JScrollPane(_view),BorderLayout.CENTER);
         this.add(bottomPanel,BorderLayout.SOUTH);
-        this.add(new JTextField(String.format("Blink")),BorderLayout.NORTH);
+        this.add(new JLabel(String.format("Blink")),BorderLayout.NORTH);
     }
 
     public static void main(String[] args) {

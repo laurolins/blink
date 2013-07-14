@@ -41,10 +41,10 @@ public class Resoluvel {
 	}
 	
 	void criaGrafo(){
-		arestas[0] = new ArrayList<>();
-	    arestas[1] = new ArrayList<>();
-	    arestas[2] = new ArrayList<>();
-	    arestas[3] = new ArrayList<>();
+		arestas[0] = new ArrayList();
+	    arestas[1] = new ArrayList();
+	    arestas[2] = new ArrayList();
+	    arestas[3] = new ArrayList();
 	    int pos = 0;
 	    for(int i = 1;i<numV;i+=2) arestas[0].add(new pair(i,i+1));
 	    pos = criarAresta(1, pos)+1;
@@ -78,7 +78,7 @@ public class Resoluvel {
 	}
 	
 	void createDM2(int tipo){
-	    E2 = new Vector<>();
+	    E2 = new Vector();
 	    for(int i = 1;i<=numV;i++){
 	        for(int j = 1;j<=numV;j++){
 	            if(i == j) continue;
@@ -96,7 +96,7 @@ public class Resoluvel {
 	}
 	
 	void createDM3(int tipo){
-	    E3 = new Vector<>();
+	    E3 = new Vector();
 	    for(int i = 1;i<=numV;i++){
 	        for(int j = 1;j<=numV;j++){
 	            if(i == j) continue;
@@ -114,7 +114,7 @@ public class Resoluvel {
 	}
 	
 	void criaEGX(int numGrafo, int a1, int a2){
-	    EGX[numGrafo] = new ArrayList<>();
+	    EGX[numGrafo] = new ArrayList();
 	    for(int i=0;i<arestas[a1].size();i++){
 	        EGX[numGrafo].add(arestas[a1].get(i));
 	    }
@@ -132,7 +132,7 @@ public class Resoluvel {
 	
 	boolean isconexo(int numGrafo){
 	    int p1, p2, count = 0;
-	    AGPMDMX = new Vector<>();
+	    AGPMDMX = new Vector();
 	    for(int i = 1;i<=numV;i++)repre[i] = i;
 	    for(int i = 0;i<EGX[numGrafo].size();i++){
 	        p1 = find_set(EGX[numGrafo].get(i).first);
