@@ -63,14 +63,14 @@ public class SavePDF extends AbstractAction {
 						new FileOutputStream(selFile));
 				document.open();
 				PdfContentByte contentByte = writer.getDirectContent();
-				PdfTemplate template = contentByte.createTemplate(500, 500);
+				PdfTemplate template = contentByte.createTemplate(500, 660);
 //				Graphics2D g2 = template.createGraphics(500, 500);
 				Graphics2D g2 = new PdfGraphics2D(contentByte, width, height);
 				// the idea is that "width" and "height" might change their values
 				// for now a fixed value is being used
 				double scx = (500 / (double) width);
 				double scy = (500 / (double) height);
-				g2.scale(scx, scy);
+				g2.scale(scx, scx);
 				if(_view == null) {
 					_panel.print(g2);
 				} else {
