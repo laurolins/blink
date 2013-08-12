@@ -4791,7 +4791,7 @@ class FunctionComposeQI extends Function {
 
 class FunctionGenerate3Con extends Function {
     public FunctionGenerate3Con() {
-        super("generate3Con","Generate all 3-connected blinks");
+        super("get3Con","Get all 3-connected blinks, giving a number of edges or a interval of edges.");
     }
 
     public Object evaluate(ArrayList<Object> params, DataMap localData) throws EvaluationException {
@@ -4809,33 +4809,25 @@ class FunctionGenerate3Con extends Function {
    }
 
    private Object hardwork(ArrayList<Object> params, DataMap localData) throws EvaluationException, Exception {
-       long t0 = System.currentTimeMillis();
 
-       // file
-       String file = null;
-       try { file = ((String) localData.getData("file")).toString(); } catch (Exception e) {}
+       int min = ((Number)params.get(0)).intValue(), max;
+       if(params.get(1) != null)
+    	   max = ((Number)params.get(1)).intValue();
+       else
+    	   max = min;
+       
+       if(min < 1 || max < 1 || max > min)
+    	   return "Error.";
 
-       int max = ((Number)params.get(0)).intValue();
-
-       GenerateMaps3TConnected GBM = new GenerateMaps3TConnected(max,file);
+       GenerateMaps3TConnected GBM = new GenerateMaps3TConnected(min, max);
        GBM.process();
 
-       if (file == null) {
-           ArrayList<MapPackedWord> maps = GBM.getResult();
-           ArrayList<GBlink> blinks = new ArrayList<GBlink>();
-           for (MapPackedWord mpw: maps) {
-               blinks.add(new GBlink(mpw.toString()));
-           }
-           return blinks;
+       ArrayList<MapPackedWord> maps = GBM.getResult();
+       ArrayList<GBlink> blinks = new ArrayList<GBlink>();
+       for (MapPackedWord mpw: maps) {
+           blinks.add(new GBlink(mpw.toString()));
        }
-       else {
-           String message = String.format("File %s of blocks up to %d saved with success. (time: %.2f seg.)",
-                                            file,
-                                            max,
-                                            (System.currentTimeMillis() - t0) / 1000.0);
-           System.out.println(""+message);
-           return message;
-       }
+       return blinks;
     }
 }
 

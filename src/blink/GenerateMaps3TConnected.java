@@ -1,6 +1,5 @@
 package blink;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,11 +13,9 @@ public class GenerateMaps3TConnected {
     private int _maximum;
     private int _noLoops;
 
-    private String _outputFileName;
 
-    public GenerateMaps3TConnected(int maximum, String outputFileName) {
+    public GenerateMaps3TConnected(int minimum, int maximum) {
         _maximum = maximum;
-        _outputFileName = outputFileName;
 
         // add basis
         for (int i=3;;i++) {
@@ -142,25 +139,6 @@ public class GenerateMaps3TConnected {
         }
 
 
-
-        // finished calculating maps
-        ArrayList<MapPackedWord> list = new ArrayList<MapPackedWord>();
-
-        list.addAll(_maps);
-        Collections.sort(list);
-
-        // write to file if there is one
-        if (_outputFileName != null) {
-            FileWriter fw = new FileWriter(_outputFileName);
-            for (MapPackedWord m : list) {
-                if (!m.containsSimpleLoop()) {
-                    fw.write(m.toString());
-                    fw.write("\n");
-                }
-            }
-            fw.flush();
-            fw.close();
-        }
     }
 
     /**
@@ -174,7 +152,7 @@ public class GenerateMaps3TConnected {
     }
 
     public static void main(String[] args) throws IOException {
-        GenerateMaps3TConnected mg = new GenerateMaps3TConnected(16,"temp.txt");
+        GenerateMaps3TConnected mg = new GenerateMaps3TConnected(11, 11);
         mg.process();
     }
 
