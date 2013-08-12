@@ -1239,7 +1239,7 @@ public class BlinkDB {
 		return getBlinksByConn(sql);
 	}
 
-	public ArrayList<BlinkEntry> getBlinksByConn(String sql) throws SQLException, IOException,
+	private ArrayList<BlinkEntry> getBlinksByConn(String sql) throws SQLException, IOException,
 	ClassNotFoundException {
 		Connection con = getConnection();
 		Statement stmt = con.createStatement();
@@ -1260,7 +1260,9 @@ public class BlinkDB {
 		Statement stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery("select max(numedges) from classblink where" +
 				" connected = " + connected);
-		int res = rs.getInt(1);
+		int res = 0;
+		if(rs.next())
+			res = rs.getInt(1);
 		rs.close();
 		stmt.close();
 		return res;

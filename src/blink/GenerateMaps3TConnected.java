@@ -1,6 +1,7 @@
 package blink;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -12,18 +13,42 @@ public class GenerateMaps3TConnected {
     private HashSet<MapPackedWord> _maps = new HashSet<MapPackedWord>();
     private int _maximum;
     private int _noLoops;
+    private boolean _save;
 
 
     public GenerateMaps3TConnected(int minimum, int maximum) {
         _maximum = maximum;
-
-        // add basis
-        for (int i=3;;i++) {
-            GBlink b = getWheel(i);
-            if (b.getNumberOfGEdges() <= maximum)
-                this.store(b);
-            else break;
-        }
+        int maxInDB = 0;
+		try {
+			maxInDB = App.getRepositorio().getMaxEdgebyConn(3);
+			int i = (int) (maxInDB / 2);
+        	if(i < 3)
+        		i = 3;
+        	for (;;i++) {
+        		GBlink b = getWheel(i);
+        		if (b.getNumberOfGEdges() <= maximum)
+        			this.store(b);
+        		else break;
+        	}
+			if(maxInDB < maximum){
+				ArrayList<BlinkEntry> bes = App.getRepositorio().getBlinksByConn(3, maxInDB);
+				for(BlinkEntry be : bes){
+					this.store(be.getBlink());
+				}
+	        }
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        
+        //get
     }
 
     public GBlink getWheel(int n) {
@@ -154,6 +179,12 @@ public class GenerateMaps3TConnected {
     public static void main(String[] args) throws IOException {
         GenerateMaps3TConnected mg = new GenerateMaps3TConnected(11, 11);
         mg.process();
+        ArrayList<MapPackedWord> maps = mg.getResult();
+        ArrayList<GBlink> blinks = new ArrayList<GBlink>();
+        for (MapPackedWord mpw: maps) {
+            blinks.add(new GBlink(mpw.toString()));
+        }
+        
     }
 
 }
