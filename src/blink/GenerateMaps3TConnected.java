@@ -11,30 +11,47 @@ import java.util.Queue;
 public class GenerateMaps3TConnected {
     private Queue<MapPackedWord> _unprocessedMaps = new LinkedList<MapPackedWord>();
     private HashSet<MapPackedWord> _maps = new HashSet<MapPackedWord>();
-    private int _maximum;
-    private int _noLoops;
+    private ArrayList<BlinkEntry> _saveList;
+    private int _maximum, _noLoops, _minimum;
     private boolean _save;
 
 
     public GenerateMaps3TConnected(int minimum, int maximum) {
         _maximum = maximum;
+        _minimum = minimum;
+        _save = false;
         int maxInDB = 0;
 		try {
 			maxInDB = App.getRepositorio().getMaxEdgebyConn(3);
-			int i = (int) (maxInDB / 2);
-        	if(i < 3)
-        		i = 3;
-        	for (;;i++) {
-        		GBlink b = getWheel(i);
-        		if (b.getNumberOfGEdges() <= maximum)
-        			this.store(b);
-        		else break;
-        	}
 			if(maxInDB < maximum){
+				_saveList  = new ArrayList<BlinkEntry>();
+				int i = ((int) (maxInDB / 2));
+	        	if(i < 3)
+	        		i = 3;
+	        	for (;;i++) {
+	        		GBlink b = getWheel(i);
+	        		System.out.println();
+	        		if (b.getNumberOfGEdges() <= maximum){
+	        			this.store(b);
+	        			_saveList.add(
+	        					new BlinkEntry(
+	        							BlinkEntry.NOT_PERSISTENT,
+	        							b.getBlinkWord().toString(),
+	        							b.getColorInAnInteger(),
+	        							b.getNumberOfGEdges(),
+	        							b.homologyGroupFromGBlink().toString(),
+	        							-1,-1,-1,"",0
+	        					)
+	        			);
+	        		}
+	        		else break;
+	        	}
+	        	
 				ArrayList<BlinkEntry> bes = App.getRepositorio().getBlinksByConn(3, maxInDB);
 				for(BlinkEntry be : bes){
 					this.store(be.getBlink());
 				}
+				
 	        }
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -51,7 +68,7 @@ public class GenerateMaps3TConnected {
         //get
     }
 
-    public GBlink getWheel(int n) {
+    public static GBlink getWheel(int n) {
         int[][] cyclicList = new int[n+1][];
         int k = n;
         for (int i=0;i<n;i++) {
@@ -89,6 +106,7 @@ public class GenerateMaps3TConnected {
         // contains
         if (!_maps.contains(codeWord)) {
             _maps.add(codeWord);
+            
             return true;
         }
         else {
@@ -109,6 +127,18 @@ public class GenerateMaps3TConnected {
             _noLoops++;
         _unprocessedMaps.offer(codeWord);
         _maps.add(codeWord);
+        //CONTINUAR AQUI
+//        GBlink b = new ;
+//        _saveList.add(
+//				new BlinkEntry(
+//						BlinkEntry.NOT_PERSISTENT,
+//						b.getBlinkWord().toString(),
+//						b.getColorInAnInteger(),
+//						b.getNumberOfGEdges(),
+//						b.homologyGroupFromGBlink().toString(),
+//						-1,-1,-1,"",0
+//				)
+//		);
         return true;
     }
 
@@ -176,14 +206,25 @@ public class GenerateMaps3TConnected {
         return result;
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         GenerateMaps3TConnected mg = new GenerateMaps3TConnected(11, 11);
         mg.process();
-        ArrayList<MapPackedWord> maps = mg.getResult();
-        ArrayList<GBlink> blinks = new ArrayList<GBlink>();
-        for (MapPackedWord mpw: maps) {
-            blinks.add(new GBlink(mpw.toString()));
-        }
+//        ArrayList<MapPackedWord> maps = mg.getResult();
+//        ArrayList<GBlink> blinks = new ArrayList<GBlink>();
+//        for (MapPackedWord mpw: maps) {
+//    	int i = 3;
+//    	for (;;i++) {
+//    		GBlink b = getWheel(i);
+//    		if (b.getNumberOfGEdges() <= 6){
+//    			System.out.println(b.getMapWord());
+//    			LinkDrawing ld = new LinkDrawing(b, 0, 0, 1);
+//    			LnkGen lnk = new LnkGen(b);
+//                lnk.genLnkFile("wheel-" + i + ".lnk");
+//    		}
+//    		else break;
+//    	}
+            
+//        }
         
     }
 
