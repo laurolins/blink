@@ -127,18 +127,17 @@ public class GenerateMaps3TConnected {
             _noLoops++;
         _unprocessedMaps.offer(codeWord);
         _maps.add(codeWord);
-        //CONTINUAR AQUI
-//        GBlink b = new ;
-//        _saveList.add(
-//				new BlinkEntry(
-//						BlinkEntry.NOT_PERSISTENT,
-//						b.getBlinkWord().toString(),
-//						b.getColorInAnInteger(),
-//						b.getNumberOfGEdges(),
-//						b.homologyGroupFromGBlink().toString(),
-//						-1,-1,-1,"",0
-//				)
-//		);
+        GBlink b = new GBlink(codeWord.toString());
+        _saveList.add(
+				new BlinkEntry(
+						BlinkEntry.NOT_PERSISTENT,
+						b.getBlinkWord().toString(),
+						b.getColorInAnInteger(),
+						b.getNumberOfGEdges(),
+						b.homologyGroupFromGBlink().toString(),
+						-1,-1,-1,"",0
+				)
+		);
         return true;
     }
 
@@ -192,18 +191,35 @@ public class GenerateMaps3TConnected {
                                              _noLoops,
                                              (System.currentTimeMillis()-t0)/1000.0));
         }
-
-
+        
+//        for (MapPackedWord mpw: _maps) { CONTINUAR AQUI
+//            blinks.add(new GBlink(mpw.toString()));
+//        }
+        
     }
 
     /**
      * All in memory.
      */
-    public ArrayList<MapPackedWord> getResult() {
-        ArrayList<MapPackedWord> result = new ArrayList<MapPackedWord>();
-        result.addAll(_maps);
-        Collections.sort(result);
-        return result;
+    public ArrayList<GBlink> getResult() {
+    	ArrayList<BlinkEntry> bes = null;
+		try {
+			bes = App.getRepositorio().getBlinksByConn(3, _minimum, _maximum);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        ArrayList<GBlink> blinks = new ArrayList<GBlink>();
+        for (BlinkEntry mpw: bes) {
+            blinks.add(new GBlink(mpw.toString()));
+        }
+        return blinks;
     }
 
     public static void main(String[] args) throws Exception {

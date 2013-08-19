@@ -4822,12 +4822,7 @@ class FunctionGenerate3Con extends Function {
        GenerateMaps3TConnected GBM = new GenerateMaps3TConnected(min, max);
        GBM.process();
 
-       ArrayList<MapPackedWord> maps = GBM.getResult();
-       ArrayList<GBlink> blinks = new ArrayList<GBlink>();
-       for (MapPackedWord mpw: maps) {
-           blinks.add(new GBlink(mpw.toString()));
-       }
-       return blinks;
+       return GBM.getResult();
     }
 }
 

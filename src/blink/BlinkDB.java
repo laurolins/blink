@@ -70,10 +70,10 @@ public class BlinkDB {
 		for (int i=0;i<blinks.length;i++) {
 			list.add(blinks[i]);
 		}
-		this.insertBlinks(list);
+		this.insertBlinks(list, 1);
 	}
 
-	public void insertBlinks(ArrayList<BlinkEntry> blinks) throws SQLException {
+	public void insertBlinks(ArrayList<BlinkEntry> blinks, int connected) throws SQLException {
 
 		if (blinks.size() == 0)
 			return;
@@ -1217,7 +1217,7 @@ public class BlinkDB {
 	
 	public ArrayList<BlinkEntry> getBlinksByConn(int connected, int numedges) throws SQLException, IOException,
 	ClassNotFoundException {
-		String sql = "select blink from classblink where" +
+		String sql = "select id from blink where" +
 				" connected = " + connected +
 				" and numedges = " + numedges;
 		return getBlinksByConn(sql);
@@ -1225,14 +1225,14 @@ public class BlinkDB {
 	
 	public ArrayList<BlinkEntry> getBlinksByConn(int connected) throws SQLException, IOException,
 	ClassNotFoundException {
-		String sql = "select blink from classblink where" +
+		String sql = "select id from blink where" +
 				" connected = " + connected;
 		return getBlinksByConn(sql);
 	}
 	
 	public ArrayList<BlinkEntry> getBlinksByConn(int connected, int minedges, int maxedges) throws SQLException, IOException,
 	ClassNotFoundException {
-		String sql = "select blink from classblink where" +
+		String sql = "select id from blink where" +
 				" connected = " + connected +
 				" and numedges between " + minedges +
 				" and " + maxedges;
@@ -1258,7 +1258,7 @@ public class BlinkDB {
 	ClassNotFoundException {
 		Connection con = getConnection();
 		Statement stmt = con.createStatement();
-		ResultSet rs = stmt.executeQuery("select max(numedges) from classblink where" +
+		ResultSet rs = stmt.executeQuery("select max(numedges) from blink where" +
 				" connected = " + connected);
 		int res = 0;
 		if(rs.next())

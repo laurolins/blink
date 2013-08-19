@@ -60,14 +60,14 @@ public class PopulateDB {
             list.add(be);
 
             if (list.size() == 250000) {
-                db.insertBlinks(list);
+                db.insertBlinks(list, 1);
                 list.clear();
             }
 
         }
 
         if (list.size() > 0) {
-            db.insertBlinks(list);
+            db.insertBlinks(list, 1);
             list.clear();
         }
         System.out.println(String.format("Blinks processed: %d   %.2f",count,(System.currentTimeMillis()-t)/1000.0));
@@ -119,14 +119,14 @@ public class PopulateDB {
             list.add(be);
 
             if (list.size() == 250000) {
-                db.insertBlinks(list);
+                db.insertBlinks(list, 1);
                 list.clear();
             }
 
         }
 
         if (list.size() > 0) {
-            db.insertBlinks(list);
+            db.insertBlinks(list, 1);
             list.clear();
         }
         System.out.println(String.format("Blinks processed: %d   %.2f",count,(System.currentTimeMillis()-t)/1000.0));
