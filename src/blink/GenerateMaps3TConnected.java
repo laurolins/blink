@@ -13,30 +13,27 @@ public class GenerateMaps3TConnected {
     private HashSet<MapPackedWord> _maps = new HashSet<MapPackedWord>();
     private ArrayList<BlinkEntry> _saveList;
     private int _maximum, _noLoops, _minimum;
-    private boolean _save;
 
 
     public GenerateMaps3TConnected(int minimum, int maximum) {
         _maximum = maximum;
         _minimum = minimum;
-        _save = false;
         int maxInDB = 0;
 		try {
 			maxInDB = App.getRepositorio().getMaxEdgebyConn(3);
 			if(maxInDB < maximum){
 				_saveList  = new ArrayList<BlinkEntry>();
-				int i = ((int) (maxInDB / 2));
+				int i = ((int)(maxInDB / 2)) + 1;
 	        	if(i < 3)
 	        		i = 3;
 	        	for (;;i++) {
 	        		GBlink b = getWheel(i);
-	        		System.out.println();
 	        		if (b.getNumberOfGEdges() <= maximum){
 	        			this.store(b);
 	        			_saveList.add(
 	        					new BlinkEntry(
 	        							BlinkEntry.NOT_PERSISTENT,
-	        							b.getBlinkWord().toString(),
+	        							b.getBlinkWord().toString().trim(),
 	        							b.getColorInAnInteger(),
 	        							b.getNumberOfGEdges(),
 	        							b.homologyGroupFromGBlink().toString(),
@@ -128,10 +125,11 @@ public class GenerateMaps3TConnected {
         _unprocessedMaps.offer(codeWord);
         _maps.add(codeWord);
         GBlink b = new GBlink(codeWord.toString());
+        
         _saveList.add(
 				new BlinkEntry(
 						BlinkEntry.NOT_PERSISTENT,
-						b.getBlinkWord().toString(),
+						b.getBlinkWord().toString().trim(),
 						b.getColorInAnInteger(),
 						b.getNumberOfGEdges(),
 						b.homologyGroupFromGBlink().toString(),
@@ -144,6 +142,8 @@ public class GenerateMaps3TConnected {
     public void process() throws IOException {
         //if (1 == 1)
         //    return;
+    	if(_saveList == null)
+    		return;
         long t0 = System.currentTimeMillis();
         while (!_unprocessedMaps.isEmpty()) {
             MapPackedWord x = _unprocessedMaps.poll();
@@ -192,9 +192,13 @@ public class GenerateMaps3TConnected {
                                              (System.currentTimeMillis()-t0)/1000.0));
         }
         
-//        for (MapPackedWord mpw: _maps) { CONTINUAR AQUI
-//            blinks.add(new GBlink(mpw.toString()));
-//        }
+        
+        try {
+			App.getRepositorio().insertBlinks(_saveList, 3);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         
     }
 
@@ -216,15 +220,16 @@ public class GenerateMaps3TConnected {
 			e.printStackTrace();
 		}
         ArrayList<GBlink> blinks = new ArrayList<GBlink>();
-        for (BlinkEntry mpw: bes) {
-            blinks.add(new GBlink(mpw.toString()));
+        for (BlinkEntry be: bes) {
+            blinks.add(be.getBlink());
         }
         return blinks;
     }
 
     public static void main(String[] args) throws Exception {
-        GenerateMaps3TConnected mg = new GenerateMaps3TConnected(11, 11);
+        GenerateMaps3TConnected mg = new GenerateMaps3TConnected(6, 16);
         mg.process();
+        System.out.println(mg.getResult().size());
 //        ArrayList<MapPackedWord> maps = mg.getResult();
 //        ArrayList<GBlink> blinks = new ArrayList<GBlink>();
 //        for (MapPackedWord mpw: maps) {

@@ -70,7 +70,11 @@ public class BlinkDB {
 		for (int i=0;i<blinks.length;i++) {
 			list.add(blinks[i]);
 		}
-		this.insertBlinks(list, 1);
+		this.insertBlinks(list);
+	}
+	
+	public void insertBlinks(ArrayList<BlinkEntry> blinks) throws SQLException {
+		insertBlinks(blinks, 1);
 	}
 
 	public void insertBlinks(ArrayList<BlinkEntry> blinks, int connected) throws SQLException {
@@ -81,16 +85,18 @@ public class BlinkDB {
 		Connection con = getConnection();
 		con.setAutoCommit(false);
 		Statement stmt = con.createStatement();
+//		ResultSet rs = stmt.executeQuery("select max(id) from blink");
+//		int maxid = rs.getInt(1);
 		for (BlinkEntry b: blinks) {
 			if (b == null) continue;
-			stmt.addBatch("insert into blink (mapcode, colors, numedges, hg, qi, comment) values ("+
+			stmt.addBatch("insert into blink (mapcode, colors, numedges, hg, qi, comment, connected) values ("+
 					"'"+b.get_mapCode()+"',"+
 					b.get_colors()+","+
 					b.get_numEdges()+","+
 					"'"+b.get_hg()+"',"+
 					b.get_qi()+","+
-					"'"+b.get_comment()+"'"+
-					")");
+					"'"+b.get_comment()+"',"+
+					connected + ")");
 		}
 		stmt.executeBatch();
 		ResultSet rs = stmt.getGeneratedKeys();
