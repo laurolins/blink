@@ -4811,7 +4811,7 @@ class FunctionGenerate3Con extends Function {
    private Object hardwork(ArrayList<Object> params, DataMap localData) throws EvaluationException, Exception {
 
        int min = ((Number)params.get(0)).intValue(), max;
-       if(params.get(1) != null)
+       if(params.size() > 1)
     	   max = ((Number)params.get(1)).intValue();
        else
     	   max = min;

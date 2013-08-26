@@ -134,7 +134,7 @@ public class BlinkEntry implements Comparable {
         return result;
     }
 
-    public InputStream get_pathBinaryStream() throws ClassNotFoundException, IOException {
+    public byte[] get_pathByteArray() throws ClassNotFoundException, IOException {
         if (_path == null)
             return null;
         else {
@@ -142,15 +142,14 @@ public class BlinkEntry implements Comparable {
         }
     }
 
-    private static InputStream encode(Serializable s) throws IOException {
+    private static byte[] encode(Serializable s) throws IOException {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         GZIPOutputStream gzos = new GZIPOutputStream(bos);
         ObjectOutputStream oos = new ObjectOutputStream(gzos);
         oos.writeObject(s);
         oos.flush();
         oos.close();
-        byte[] data = bos.toByteArray();
-        return new ByteArrayInputStream(data);
+        return bos.toByteArray();
     }
 
     private static Object decode(InputStream is) throws IOException, ClassNotFoundException {

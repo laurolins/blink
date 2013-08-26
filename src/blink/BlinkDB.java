@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import sun.misc.IOUtils;
 import edu.uci.ics.jung.utils.Pair;
 
 /**
@@ -120,8 +121,7 @@ public class BlinkDB {
 		for (QI qi: qis) {
 			stmt.setInt(1,qi.get_rmax());
 			stmt.setLong(2,qi.getHashCode());
-			InputStream is = qi.getEntries();
-			stmt.setBinaryStream(3, is, is.available());
+			stmt.setBytes(3, qi.getEntries());
 			stmt.executeUpdate();
 			ResultSet rs = stmt.getGeneratedKeys();
 			if (rs.next()) {
@@ -226,11 +226,11 @@ public class BlinkDB {
 					"update blink set gem=?, path=? where id=?"
 					);
 			stmt.setLong(1,b.get_gem());
-			InputStream is = b.get_pathBinaryStream();
+			byte[] is = b.get_pathByteArray();
 			if (is == null) {
 				stmt.setNull(2,java.sql.Types.BLOB);
 			}
-			else stmt.setBinaryStream(2, is, is.available());
+			else stmt.setBytes(2, is);
 			stmt.setLong(3,b.get_id());
 			stmt.execute();
 			stmt.close();
@@ -785,8 +785,7 @@ public class BlinkDB {
 		con.setAutoCommit(false);
 		PreparedStatement stmt = con.prepareStatement("insert into gem (code,hashcode,handle,numvert,tsclasssize,catalogNumber,status,mingem,tsrepresentant) values (?,?,?,?,?,?,?,?,?)");
 		for (GemEntry ge: list) {
-			InputStream is = ge.getCodeAsInputStream();
-			stmt.setBinaryStream(1,is, is.available());
+			stmt.setBytes(1, ge.getCodeAsByteArray());
 			stmt.setLong(2,ge.getGemHashCode());
 			stmt.setInt(3, ge.getHandleNumber());
 			stmt.setInt(4, ge.getNumVertices());
@@ -814,8 +813,7 @@ public class BlinkDB {
 		con.setAutoCommit(false);
 		PreparedStatement stmt = con.prepareStatement("insert into gem (code,hashcode,handle,numvert,tsclasssize,catalogNumber,status,mingem,tsrepresentant) values (?,?,?,?,?,?,?,?,?)");
 		for (GemEntry ge: list) {
-			InputStream is = ge.getCodeAsInputStream();
-			stmt.setBinaryStream(1,is, is.available());
+			stmt.setBytes(1, ge.getCodeAsByteArray());
 			stmt.setLong(2,ge.getGemHashCode());
 			stmt.setInt(3, ge.getHandleNumber());
 			stmt.setInt(4, ge.getNumVertices());
@@ -984,9 +982,9 @@ public class BlinkDB {
 			PreparedStatement stmt = con.prepareStatement("insert into gempath (source,target,path) values (?,?,?)");
 			stmt.setLong(1,b.getSource());
 			stmt.setLong(2,b.getTarget());
-			InputStream is = b.get_pathBinaryStream();
+			byte[] is = b.get_pathByteArray();
 			if (is == null) stmt.setNull(3,java.sql.Types.BLOB);
-			else stmt.setBinaryStream(3, is, is.available());
+			else stmt.setBytes(3, is);
 			stmt.execute();
 			ResultSet rs = stmt.getGeneratedKeys();
 			if (rs.next())
@@ -1027,9 +1025,9 @@ public class BlinkDB {
 			PreparedStatement stmt = con.prepareStatement("insert into gempath (source,target,path) values (?,?,?)");
 			stmt.setLong(1,b.getSource());
 			stmt.setLong(2,b.getTarget());
-			InputStream is = b.get_pathBinaryStream();
+			byte[] is = b.get_pathByteArray();
 			if (is == null) stmt.setNull(3,java.sql.Types.BLOB);
-			else stmt.setBinaryStream(3, is, is.available());
+			else stmt.setBytes(3, is);
 			stmt.execute();
 			ResultSet rs = stmt.getGeneratedKeys();
 			if (rs.next())

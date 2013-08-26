@@ -59,7 +59,7 @@ public class GenerateQI {
 
                 QI qi = b.optimizedQuantumInvariant(3, 8);
 
-                // System.out.println("Calculated "+count++);
+                System.out.println("Calculated "+count++);
 
                 // add to repository
                 QI qiRep = R.add(qi);

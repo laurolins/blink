@@ -1,6 +1,7 @@
 package blink;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -106,7 +107,7 @@ class ClassificationGemRep {
         System.out.println("Adding new entry with handle "+desiredHandleNumber);
         GemEntry ge = new GemEntry(
             GemEntry.NOT_PERSISTENT,
-            zeroHandleGemEntry.getCodeAsInputStream(),
+            new ByteArrayInputStream(zeroHandleGemEntry.getCodeAsByteArray()),
             desiredHandleNumber,
             zeroHandleGemEntry.getTSClassSize(),
             zeroHandleGemEntry.getCatalogNumber(),
