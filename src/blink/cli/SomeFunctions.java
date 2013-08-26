@@ -82,7 +82,7 @@ import blink.PointOfReidemeisterIII;
 import blink.QI;
 import blink.Quartet;
 import blink.RhoPair;
-import blink.SavePDF;
+import blink.SavePDFContext;
 import blink.SearchAttractor;
 import blink.TryToConnectGemsFromTheSameHGQI;
 import blink.Twistor;

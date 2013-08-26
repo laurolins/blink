@@ -51,7 +51,7 @@ public class PanelDrawBlinks extends JPanel {
     private void addGUIComponents() {
     	BlinkPanel blinkPanel = new BlinkPanel();
     	JPanel bottomPanel = new JPanel();
-        bottomPanel.add(new JButton(new SavePDF(blinkPanel, null)));
+        bottomPanel.add(new JButton(new SavePDFContext(blinkPanel, null)));
         
         this.setLayout(new BorderLayout());
         this.add(bottomPanel,BorderLayout.SOUTH);

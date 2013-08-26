@@ -99,7 +99,7 @@ public class PanelMapViewer extends JPanel {
         bottomPanel.add(new JButton(new ActionZoom(1.20)));
         bottomPanel.add(new JButton(new ActionZoom(0.80)));
         bottomPanel.add(new JButton(new ShowLenses()));
-        bottomPanel.add(new JButton(new SavePDF(this, _view)));
+        bottomPanel.add(new JButton(new SavePDFContext(this, _view)));
 
         // layout panel
         this.setLayout(new BorderLayout());
