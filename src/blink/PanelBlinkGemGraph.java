@@ -156,7 +156,7 @@ public class PanelBlinkGemGraph extends JPanel {
         bottomPanel.add(jcb);
         bottomPanel.add(new JButton(new ShowLenses()));
         bottomPanel.add(new JButton(new WriteEPS()));
-        bottomPanel.add(new JButton(new SavePDF(this, _view)));
+        bottomPanel.add(new JButton(new SavePDFContext(this, _view)));
 
         // layout panel
         this.setLayout(new BorderLayout());
