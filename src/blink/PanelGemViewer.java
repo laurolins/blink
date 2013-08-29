@@ -1,5 +1,6 @@
 package blink;
 
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -7,6 +8,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Paint;
 import java.awt.Shape;
+import java.awt.Stroke;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Point2D;
@@ -47,6 +49,7 @@ import edu.uci.ics.jung.graph.decorators.ConstantVertexAspectRatioFunction;
 import edu.uci.ics.jung.graph.decorators.ConstantVertexPaintFunction;
 import edu.uci.ics.jung.graph.decorators.ConstantVertexSizeFunction;
 import edu.uci.ics.jung.graph.decorators.EdgePaintFunction;
+import edu.uci.ics.jung.graph.decorators.EdgeStrokeFunction;
 import edu.uci.ics.jung.graph.decorators.VertexShapeFunction;
 import edu.uci.ics.jung.graph.decorators.VertexStringer;
 import edu.uci.ics.jung.graph.impl.SparseGraph;
@@ -67,6 +70,8 @@ public class PanelGemViewer extends JPanel {
     SparseGraph _G;
     Gem _gem;
     Lens _lenses;
+    
+    public static PluggableRenderer bwRender = new PluggableRenderer();
     
     /** A VisualizationViewer from JUNG library that holds the drawing of a {@link Gem}. */
     VisualizationViewer _view;
@@ -95,7 +100,15 @@ public class PanelGemViewer extends JPanel {
     }
 
     public PanelGemViewer(Gem gem, boolean fourFold, boolean showStrings, IGemVertexLabeler labeler, boolean mount3dModel) {
-        // mount graph
+        // creating black and white renderer
+    	bwRender.setVertexPaintFunction(new ConstantVertexPaintFunction(Color.black,Color.gray));
+    	bwRender.setVertexStringer(new MyVertexLabeler(labeler));
+    	bwRender.setVertexLabelCentering(true);
+    	bwRender.setEdgePaintFunction(new GrayEdgePaint());
+    	bwRender.setEdgeStrokeFunction(new GrayEdgeStroke());
+    	bwRender.setEdgeIncludePredicate(new MyEdgeIncludePredicate());
+        
+    	// mount graph
         _G = this.mountGraph(gem);
         _gem = gem;
 
@@ -149,7 +162,7 @@ public class PanelGemViewer extends JPanel {
         bottomPanel.add(new JButton(new SimplifyGem(this,_gem)));
         bottomPanel.add(new JButton(new ResolveGem(this,_gem)));
         bottomPanel.add(new JButton(new SaveEPS(this,_gem)));
-        bottomPanel.add(new JButton(new SavePDF(this, _view)));
+        bottomPanel.add(new JButton(new SavePDFContext(this, _view)));
 
 
         String code;
@@ -826,6 +839,49 @@ class MyEdgePaint implements EdgePaintFunction {
             return Color.green;
         else return Color.black;*/
     }
+}
+
+class GrayEdgePaint implements EdgePaintFunction {
+
+	@Override
+	public Paint getDrawPaint(Edge e) {
+		GemColor c = (GemColor) e.getUserDatum("color");
+        if (c == GemColor.yellow)
+            return Color.gray;
+        else if (c == GemColor.blue)
+            return Color.black;
+        else if (c == GemColor.red)
+            return Color.gray;
+        else if (c == GemColor.green)
+            return Color.black;
+        else return Color.blue;
+	}
+
+	@Override
+	public Paint getFillPaint(Edge e) {
+		return null;
+	}
+	
+}
+
+class GrayEdgeStroke implements EdgeStrokeFunction {
+	private BasicStroke thickStroke = new BasicStroke(2.0f);
+	private BasicStroke thinStroke = new BasicStroke(5.0f);
+	
+	@Override
+	public Stroke getStroke(Edge e) {
+		GemColor c = (GemColor) e.getUserDatum("color");
+        if (c == GemColor.yellow)
+            return thinStroke;
+        else if (c == GemColor.blue)
+            return thinStroke;
+        else if (c == GemColor.red)
+            return thickStroke;
+        else if (c == GemColor.green)
+            return thickStroke;
+        else return thickStroke;
+	}
+	
 }
 
 

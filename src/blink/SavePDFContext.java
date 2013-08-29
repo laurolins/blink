@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -26,7 +25,6 @@ import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import edu.uci.ics.jung.visualization.PluggableRenderer;
 import edu.uci.ics.jung.visualization.Renderer;
 import edu.uci.ics.jung.visualization.VisualizationViewer;
 
@@ -65,14 +63,14 @@ public class SavePDFContext extends AbstractAction {
 		int height = 800;
 		JFileChooser fc = new JFileChooser();
 		fc.setMultiSelectionEnabled(true);
-		String lastPath = App.getProperty("lastSavePDF");
+		String lastPath = App.getProperty("lastSavePDFContext");
 		if (lastPath != null) {
 			fc.setSelectedFile(new File(lastPath));
 		}
 		int r = fc.showSaveDialog(_panel);
 		if (r == JFileChooser.APPROVE_OPTION) {
 			File selFile = fc.getSelectedFile();
-			App.setProperty("lastSavePDF", selFile.getAbsolutePath());
+			App.setProperty("lastSavePDFContext", selFile.getAbsolutePath());
 			// print the panel to pdf
 			Document document = new Document();
 			try {
@@ -155,7 +153,7 @@ public class SavePDFContext extends AbstractAction {
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					String lastPath = App.getProperty("lastSavePDF");
+					String lastPath = App.getProperty("lastSavePDFContext");
 					if (lastPath != null) {
 						fc.setSelectedFile(new File(lastPath));
 					}
@@ -233,7 +231,7 @@ public class SavePDFContext extends AbstractAction {
 				int width = 600;
 				int height = 800;
 
-				App.setProperty("lastSavePDF", printFile.getAbsolutePath());
+				App.setProperty("lastSavePDFContext", printFile.getAbsolutePath());
 				// print the panel to pdf
 				Document document = new Document();
 				try {

@@ -254,7 +254,7 @@ public class PanelString extends JPanel {
         controls.add(new JLabel("#Sts: "+_gists.size()));
         controls.add(graphCombo);
         controls.add(new JButton(new ActionEditCurrentString(graphCombo)));
-        controls.add(new JButton(new SavePDF(this, vv1)));
+        controls.add(new JButton(new SavePDFContext(this, vv1)));
 
         // right panel
         rightPanel.add(vv2,BorderLayout.CENTER);
