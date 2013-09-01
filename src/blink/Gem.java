@@ -342,12 +342,13 @@ public class Gem implements Cloneable, Comparable {
     }
 
     /**
-     * Get fou fold gem.
+     * Get four fold gem.
      */
     public Gem getFourFoldGem() {
         return this.getFourFoldGist().getGem();
     }
 
+    /** Checks whether this gem is valid. */
     public boolean check() {
 
         System.out.println(""+this.getStringWithNeighbours());
