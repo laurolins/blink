@@ -570,6 +570,10 @@ public class Gem implements Cloneable, Comparable {
         return v;
     }
 
+    public void addVertex(GemVertex v) {
+        _vertices.add(v);
+    }
+    
     public int getNumBlobs() {
         return this.getComponentRepository().getNumberOfBlobs();
     }
@@ -1700,7 +1704,33 @@ public class Gem implements Cloneable, Comparable {
             }
         }
     }
+    public Gem ArrumarGema(GemVertex v){
+    	this.dfsSearch(v);
+    	return this;
+ //   	this.findAllRelabelings();
+    }
 
+    public boolean isGem(){
+    	return this.getNumberOfResidues(3)+this.getNumVertices() ==  this.getNumberOfResidues(2);
+    }
+    
+    public GemVertex removerVertice(int v){
+    	GemVertex temp = _vertices.get(v-1);
+    	_vertices.remove(v-1);
+    	return temp;
+    }
+    public void inserirVertice(GemVertex v){
+    	_vertices.add(v);
+ //   	this.newVertex(label);
+    }
+    
+    public void ArrumarNumeracao(){
+    	for(int i = 1;i<this.getNumVertices();i++){
+    		if(i%2 == 1)
+    			this.getVertex(i).getYellow().setLabel(i+1);
+    	}
+    }
+    
     public static void testLinsMandelGem() {
         Gem g = new Gem(5,8,3,2);
         g.goToCodeLabel();

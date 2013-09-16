@@ -128,7 +128,8 @@ public class CommandLineInterface {
                              new FunctionWhatSpace(),
                              new FunctionGenerateRandomGem(),
                              new FunctionGemRes(),
-                             new FunctionGenLnk()
+                             new FunctionGenLnk(),
+                             new FunctionSomaConexa()
         };
         for (Function f : functions) {
             _functionMap.addFunction(f.getName(), f);
