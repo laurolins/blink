@@ -129,7 +129,8 @@ public class CommandLineInterface {
                              new FunctionGenerateRandomGem(),
                              new FunctionGemRes(),
                              new FunctionGenLnk(),
-                             new FunctionSomaConexa()
+                             new FunctionSomaConexa(),
+                             new FunctionGetCode()
         };
         for (Function f : functions) {
             _functionMap.addFunction(f.getName(), f);
