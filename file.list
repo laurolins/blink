@@ -229,6 +229,7 @@
 ./src/blink/cli/EvaluationException.java
 ./src/blink/cli/NodeLocalAssignment.java
 ./src/blink/cli/FunctionSomaConexa.java
+./src/blink/cli/FunctionGetCode.java
 ./src/blink/cli/Token.java
 ./src/blink/cli/CommandLineInterfaceParserConstants.java
 ./src/blink/cli/ParseException.java
