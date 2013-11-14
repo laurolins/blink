@@ -19,6 +19,10 @@ public enum GemColor {
         else if (c == 3) return GemColor.green;
         throw new RuntimeException();
     }
+    private static String[] names = {"yellow", "blue", "red", "green"}; 
+    public String toString() {
+        return names[getNumber()];
+    }
 
     // permutations
     public static final GemColor[][] PERMUTATIONS = {

@@ -5316,7 +5316,9 @@ class Component {
             sb.append(" "+v);
         }
         return sb.toString();
-    }}
+    }
+    
+}
 
 class GemVertexAndColorPermutation {
     GemVertex _v;

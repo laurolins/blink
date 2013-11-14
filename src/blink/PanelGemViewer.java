@@ -66,6 +66,8 @@ import edu.uci.ics.jung.visualization.VisualizationViewer;
 /**
  * PanelGemViewer
  */
+
+
 public class PanelGemViewer extends JPanel {
     SparseGraph _G;
     Gem _gem;
@@ -87,19 +89,25 @@ public class PanelGemViewer extends JPanel {
 
     public final static String KEY = "key";
     public final static String COLOR = "color";
+    public static class Simple extends PanelGemViewer {
+    	  public Simple (Gem gem) {
+            super(gem, true,true,null,true, false);   
+        }
+    }
+    
     public PanelGemViewer(Gem gem) {
-        this(gem,true,true,null,true);
+        this(gem,true,true,null,true, true);
     }
 
     public PanelGemViewer(Gem gem, boolean mount3dModel) {
-        this(gem,true,true,null,mount3dModel);
+        this(gem,true,true,null,mount3dModel, true);
     }
 
     public PanelGemViewer(Gem gem, IGemVertexLabeler labeler, boolean mount3dModel) {
-        this(gem,true,true,labeler,mount3dModel);
+        this(gem,true,true,labeler,mount3dModel, true);
     }
 
-    public PanelGemViewer(Gem gem, boolean fourFold, boolean showStrings, IGemVertexLabeler labeler, boolean mount3dModel) {
+    public PanelGemViewer(Gem gem, boolean fourFold, boolean showStrings, IGemVertexLabeler labeler, boolean mount3dModel, boolean showInfo) {
         // creating black and white renderer
     	bwRender.setVertexPaintFunction(new ConstantVertexPaintFunction(Color.black,Color.gray));
     	bwRender.setVertexStringer(new MyVertexLabeler(labeler));
@@ -181,8 +189,11 @@ public class PanelGemViewer extends JPanel {
 
         JTabbedPane tp = new JTabbedPane();
         tp.add(mainView,"Gem");
-        tp.add(this.getInfoPanel(),"Info");
-        tp.add(this.getInfoPanel2(),"Diff To S3");
+        if (showInfo) {
+	        tp.add(this.getInfoPanel(),"Info");
+   	     tp.add(this.getInfoPanel2(),"Diff To S3");
+   	  }
+   	  tp.add(this.getBigons(), "Bigons");
         /*if (showStrings) {
             PanelString ps = new PanelString(_gem); // this won't update
             tp.add(ps, "Strings " + ps.getNumberOfStrings());
@@ -190,7 +201,7 @@ public class PanelGemViewer extends JPanel {
         if ("1".equals(App.getConfiguracao().getProperty("4fold")) && fourFold) {
             Gem g4 = _gem.getFourFoldGem();
             System.out.println("Agemality: "+g4.getAgemality());
-            tp.add(new PanelGemViewer(_gem.getFourFoldGem(), false, true, null, false), "4-Fold Gem");
+            tp.add(new PanelGemViewer(_gem.getFourFoldGem(), false, true, null, false, true), "4-Fold Gem");
         }
         //if (mount3dModel) {
         //    tp.add(new PanelEGemViewer(new EGem(_gem)), "EGem");
@@ -203,6 +214,47 @@ public class PanelGemViewer extends JPanel {
                                           _gem.getHandleNumber(),code
                             )),BorderLayout.NORTH);
         this.add(tp,BorderLayout.CENTER);
+    }
+
+    private void appendBigons(GemColor c1, GemColor c2, StringBuffer sb) {
+        ComponentRepository componentRepository = _gem.getComponentRepository();
+        ArrayList<Component> bigons = componentRepository.getBigons(c1, c2);
+        for (Component bigon : bigons) {
+            ArrayList<GemVertex> vertexes = bigon.getVerticesFromBigon();
+            for (GemVertex v : vertexes) {
+                sb.append(v.getLabel() + ", ");
+            }
+            sb.append("\n");
+        }
+    }
+    
+    private JPanel getBigons() {
+        GemColor color4 = GemColor.yellow;
+        GemColor[] colors = GemColor.PERMUTATIONS[0];
+        StringBuffer sb = new StringBuffer();
+        
+        for (GemColor c1 : colors) {
+            if (c1 == color4) {
+                continue;
+            }
+            for (GemColor c2 : colors) {
+                if (c2.getNumber() <= c1.getNumber()) {
+                    continue;
+                }
+                sb.append(c1.toString() + " " + c2.toString() + "\n");
+                appendBigons(c1, c2, sb);
+                sb.append("\n");
+            }
+        }
+        
+        JTextArea ta = new JTextArea();
+        ta.setFont(new Font("Courier New",Font.PLAIN,14));
+        ta.setText(sb.toString());
+        
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        panel.add(new JScrollPane(ta),BorderLayout.CENTER);
+        return panel;
     }
 
     private JPanel getInfoPanel() {

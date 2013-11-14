@@ -131,7 +131,8 @@ public class CommandLineInterface {
                              new FunctionGenLnk(),
                              new FunctionSomaConexa(),
                              new FunctionGetCode(),
-                             new FunctionGridSimplification()
+                             new FunctionGridSimplification(),
+                             new FunctionDrawS()
         };
         for (Function f : functions) {
             _functionMap.addFunction(f.getName(), f);

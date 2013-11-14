@@ -69,3 +69,35 @@ public class FunctionDraw extends Function {
         return null;
     }
 }
+
+class FunctionDrawS extends Function {
+    public FunctionDrawS() {
+        super("draws","Simply draw gem without information");
+    }
+
+    public Object evaluate(ArrayList<Object> params, DataMap localData) throws EvaluationException {
+        try {
+            Object result = hardwork(params, localData);
+            return result;
+        } catch (EvaluationException ex) {
+            ex.printStackTrace();
+            throw ex;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            throw new EvaluationException(e.getMessage());
+        }
+    }
+
+    public Object hardwork(ArrayList params, DataMap localMap) throws EvaluationException, Exception {
+        if (params.get(0) instanceof Gem) {
+            Gem G = (Gem) params.get(0);
+            JFrame f = new JFrame("Gem Drawing: " + CommandLineInterface.getInstance()._currentCommand.replace('\n', ' '));
+            linsoft.gui.util.Library.resizeAndCenterWindow(f, 640, 480);
+            f.setContentPane(new PanelGemViewer.Simple(G));
+            f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            f.setVisible(true);
+        }
+        return null;
+    }
+}
