@@ -107,7 +107,7 @@ public class FunctionGenerateRandomGem extends Function {
 			System.out.print(vert[i].getBlue().getLabel() + "\n");
 		}
 		*/
-		return g;
+		return g.getVersionWithoutFourClusters();
 	}
 
 	static int nextEdge(int x, int d) {
