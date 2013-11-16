@@ -290,6 +290,47 @@ public class Gem implements Cloneable, Comparable {
         }
         return gists;
     }
+    
+    public void relabel(GemColor c4) {
+        GemColor[] colors = GemColor.getComplementColors(c4);
+        for (GemVertex v : _vertices) {
+            v.setFlag(false);
+        }
+        GemVertex[] stack = new GemVertex[_vertices.size()];
+        int stackPtr = 0;
+        int lastLabel = 0;
+        
+        for (GemVertex v0 : _vertices) {
+            if (v0.getFlag()) {
+                continue;
+            }
+            v0.setFlag(true);
+            v0.setLabel(2 * lastLabel++);
+            stack[stackPtr++] = v0;
+            
+            while (stackPtr > 0) {
+                GemVertex v = stack[--stackPtr];
+                int neighbourBit = (~v.getLabel() & 1);
+                for (GemColor c : colors) {
+                    GemVertex u = v.getNeighbour(c);
+                    if (!u.getFlag()) {
+                        u.setFlag(true);
+                        u.setLabel((2 * lastLabel++) | neighbourBit);
+                        stack[stackPtr++] = u;
+                    }
+                }
+                GemVertex u = v.getNeighbour(c4);
+                if (!u.getFlag()) {
+                    u.setFlag(true);
+                    u.setLabel(v.getLabel() ^ 1);
+                    stack[stackPtr++] = u;
+                }
+            }
+        }
+        for (GemVertex v : _vertices) {
+            v.setLabel(v.getLabel() + 1);
+        }
+    }
 
     /**
      * FourFoldGist. GemString of another Gem. This is a
