@@ -331,6 +331,96 @@ public class Gem implements Cloneable, Comparable {
             v.setLabel(v.getLabel() + 1);
         }
     }
+    
+    GemVertex[][][] getBigons(GemColor cA, GemColor cB, GemColor cC) {
+	    GemColor[] colors = {cA,cB,cC};
+	    ArrayList<ArrayList<ArrayList<GemVertex>>> bigons =
+	    		new ArrayList<ArrayList<ArrayList<GemVertex>>>();
+	    bigons.add(new ArrayList<ArrayList<GemVertex>>());
+	    for (int i = 0 ; i < 3; ++i) {
+	    	bigons.add(new ArrayList<ArrayList<GemVertex>>());
+    	}
+	    
+	    HashMap<GemColor, Integer> colorIdx = new HashMap<GemColor, Integer>();
+	    colorIdx.put(cA, new Integer(0));
+	    colorIdx.put(cB, new Integer(1));
+	    colorIdx.put(cC, new Integer(2));
+	    
+	    HashMap<GemVertex, Integer> edgeMark = new HashMap<GemVertex, Integer>();
+	    for (GemVertex v : this.getVertices()) {
+	        edgeMark.put(v, new Integer(0));
+	    }
+	    
+	    int numEdges = 3 * this.getNumVertices();
+	    GemVertex[] queueVertex = new GemVertex[numEdges];
+	    GemColor[] queueColor = new GemColor[numEdges];
+	    int queueFront = 0, queueBack = 0;
+	    
+	    for (GemVertex v0 : this.getVertices()) {
+	        if (edgeMark.get(v0).intValue() == 0) {
+	            for (GemColor c : colors) {
+	                queueVertex[queueBack] = v0;
+	                queueColor[queueBack] = c;
+	                queueBack++;
+	            }
+	        }
+	        while (queueFront < queueBack) {
+	            GemVertex v = queueVertex[queueFront];
+	            GemColor c1 = queueColor[queueFront];
+	            queueFront++;
+	            if ((edgeMark.get(v).intValue() & (1 << c1.getNumber())) != 0) {
+	                continue;
+	            }
+	            edgeMark.put(v, new Integer(edgeMark.get(v).intValue() | (1 << c1.getNumber())));
+	            int idx = colorIdx.get(c1).intValue();
+	            GemColor c2 = colors[(idx + 1)%3];
+	            
+	            ArrayList<GemVertex> bigon = new ArrayList<GemVertex>();
+	            GemVertex u = v;
+	            do {
+	                if ((edgeMark.get(u).intValue() & (1 << c2.getNumber())) == 0) {
+	                    queueVertex[queueBack] = u;
+	                    queueColor[queueBack] = c2;
+	                    queueBack++;
+	                }
+	                bigon.add(u);
+	                
+	                u = u.getNeighbour(c1);
+	                edgeMark.put(u, new Integer(edgeMark.get(u).intValue() | (1 << c2.getNumber())));
+	                bigon.add(u);
+	                
+	                u = u.getNeighbour(c2);
+	                edgeMark.put(u, new Integer(edgeMark.get(u).intValue() | (1 << c1.getNumber())));
+	            } while (u != v);
+	            
+	            // Rotate
+	            int iMin = 0;
+	            for (int i = 1; i < bigon.size(); ++i) {
+	            	if(bigon.get(i).getLabel() % 2 == 1 &&
+	            			bigon.get(i).getLabel() < bigon.get(iMin).getLabel()) {
+	            		iMin = i;
+	            	}
+	            }
+	            ArrayList<GemVertex> bigonRotated = new ArrayList<GemVertex>();
+	            for (int i = 0; i < bigon.size(); ++i ){
+	            	bigonRotated.add(bigon.get((i+iMin)%bigon.size()));
+	            }
+	            
+	            bigons.get(idx).add(bigonRotated);
+	        }
+	    }
+	    GemVertex[][][] ret = new GemVertex[3][][];
+	    for (int i = 0; i < 3; ++i) {
+	    	ret[i] = new GemVertex[bigons.get(i).size()][];
+	    	for (int j = 0; j < bigons.get(i).size(); ++j) {
+	    		ret[i][j] = new GemVertex[bigons.get(i).get(j).size()];
+	    		for (int k = 0; k < bigons.get(i).get(j).size(); ++k) {
+	    			ret[i][j][k] = bigons.get(i).get(j).get(k);
+	    		}
+	    	}
+	    }
+	    return ret;
+    }
 
     /**
      * FourFoldGist. GemString of another Gem. This is a

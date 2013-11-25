@@ -1,5 +1,6 @@
 package blink.cli;
 import blink.GBlink;
+import blink.GemColor;
 import blink.Gem;
 import blink.GemVertex;
 
@@ -107,7 +108,9 @@ public class FunctionGenerateRandomGem extends Function {
 			System.out.print(vert[i].getBlue().getLabel() + "\n");
 		}
 		*/
-		return g.getVersionWithoutFourClusters();
+		g = g.getVersionWithoutFourClusters();
+		g.relabel(GemColor.yellow);
+		return g;
 	}
 
 	static int nextEdge(int x, int d) {
